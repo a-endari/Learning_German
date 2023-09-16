@@ -6,11 +6,11 @@
 * > Very nice to meet you.
 * Woher kommen Sie, Herr Endari?
 * Entshculdigung, sprechen Sie Deutsch?
-* ja, ich spreche Deutsch!
+* Ja, ich spreche Deutsch!
 ***  
 * Drei kilo Tomaten, bitte!
 * vielen Dank! 
-* ja, gern geschehen!
+* Ja, gern geschehen!
 
 ## The book part!
 ### Ein neues Videospiel
@@ -31,7 +31,7 @@
 * > Ok, are wie going home now?
 * Nein wir gehen jetzt zu Vikram.
 * > NO, now we are going to Vikram's hous.
-* Oh nein! Seine Wohnung ist so lanweilig!
+* Oh nein! Seine Wohnung ist so langweilig!
 * > Oh no! his apartment is so boring!
 * Aber Vikram hat einen großen Fernseher. Und ich muss das Fußballspiel sehen.
 * > But Vikram has a big Television and I need to whatch the soccer game.
@@ -41,4 +41,5 @@
 ### Worter
 ```
 jetzt -> now
+
 ```

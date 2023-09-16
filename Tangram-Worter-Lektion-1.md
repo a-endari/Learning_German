@@ -1,121 +1,102 @@
-# Lektion 1
-* aktuell
->  به روز
+# Lektion Eins
 
-* herzlich
-> صمیمانه، قلبا
+### Die Worter
+> aktuell ➡  به روز
 
-* Fast 
-> Almost
+> herzlich ➡ صمیمانه، قلبا
 
-* Leute
-> مردم
+> Fast ➡ Almost
 
-* Landeskunder
->  مطالعات منطقه ای
+> Leute ➡ مردم
 
-* Geografie
-> جغرافی
+> Landeskunder ➡  مطالعات منطقه ای
 
-* Seit
-> Since
+> Geografie ➡ جغرافی
 
-* Einwohner
->  سکنه، جمعیت
+> Seit ➡ Since
 
-* Hafen
-> بندر
+> Einwohner ➡  سکنه، جمعیت
 
-* Firma
-> شرکت
+> Hafen ➡ بندر
 
-* Huptstadt
-> مرکز، پایتخت
+> Firma ➡ شرکت
 
-* Bundesland - Bundesländer
->  استان ها - استان
+> Huptstadt ➡ مرکز، پایتخت
 
-* Osten 
-> شرق
+> Bundesland - Bundesländer ➡  استان ها - استان
 
-* Noch
->  همچنان، هنوز
+> Osten ➡ شرق
 
-* Spaß
-> لذت 
+> Noch ➡  همچنان، هنوز
 
-* Schweizer
->  سوئیسی
+> Spaß ➡ لذت 
 
-* Grüezi
->  خداحافظی در سوئیس
+> Schweizer ➡  سوئیسی
 
-* Büro
-> دفتر
+> Grüezi ➡  خداحافظی در سوئیس
 
-* Reisebüro
->  دفتر مسافرتی
+> Büro ➡ دفتر
 
-* Dann
->  پس
+> Reisebüro ➡  دفتر مسافرتی
 
-* zewischen
-> بین، وسط
+> Dann ➡  پس
 
-* Jeder
->  هرکس، همه
+> zewischen ➡ بین، وسط
 
-* jedes jahr
->  هر سال
+> Jeder ➡  هرکس، همه
 
-* Grüß Gott!
->  روز بخیر (سلام) در اتریش و جنوب آلمان
+> jedes jahr ➡  هر سال
 
-* ganz
->  کاملا
+> Grüß Gott! ➡  روز بخیر (سلام) در اتریش و جنوب آلمان
 
-* ja jetzt
->  حالا دیگه
+> ganz ➡  کاملا
 
-* Also dann.
-> خب پس
+> ja jetzt ➡  حالا دیگه
 
-* Fächer
->  مساحت
+> Also dann. ➡ خب پس
 
-* Sprache
->  زبان
+> Fächer ➡  مساحت
 
-* Autokennzeichen
->  علامت پلاک
+> Sprache ➡  زبان
+
+> Autokennzeichen ➡  علامت پلاک
 > D : Deutchland
 > A : Österreich
 > CH: Schweiz
 
-* Deutchsprachigen Länder
-> کشورهای آلمانی زبان
+> Deutchsprachigen Länder
+ ➡ کشورهای آلمانی زبان
 
-* Lösung
-> Solution
->  راه حل
+> Lösung ➡ Solution - راه حل
 
-* Nachbarn
->  همسایه
+> Nachbarn ➡  همسایه
 
 ### Deutche Flüsse
-* Rhein
-* Elbe
-* Donau
+> Rhein
+> 
+> Elbe
+> 
+> Donau
+> 
 
 ### Sprachen
-> Niderlanden -> Niderländisch
-> Frankreich und Kuxenburg -> Französisch
-> Polen -> Polnish
-> Tschechischen Republik -> Tschechisch
-> Dänemark -> Dänisch
-> Ungarn -> Ungarisch
-> Belgien -> Französisch und Niderländisch
-> Slowakischen Republik -> Slowakisch
-> Slowenien -> Slowenisch
-> Italien -> Italienisch
+> Niderlanden  ➡️ Niderländisch
+> 
+> Frankreich und Kuxenburg  ➡️ Französisch
+> 
+> Polen  ➡️ Polnish
+> 
+> Tschechischen Republik  ➡️ Tschechisch
+> 
+> Dänemark  ➡️ Dänisch
+> 
+> Ungarn  ➡️ Ungarisch
+> 
+> Belgien  ➡️ Französisch und Niderländisch
+> 
+> Slowakischen Republik  ➡️ Slowakisch
+> 
+> Slowenien  ➡️ Slowenisch
+> 
+> Italien  ➡️ Italienisch
 
