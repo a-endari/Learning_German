@@ -47,7 +47,7 @@
 * Schweizer
 >  سوئیسی
 
-*Grüezi
+* Grüezi
 >  خداحافظی در سوئیس
 
 * Büro
