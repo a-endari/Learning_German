@@ -1,226 +1,163 @@
-mögen# Lektion 2
+# Lektion Zwei
 
-* Kleinfamilie
-> خانواده کوچک
+### Die worter
 
-* über
-> در باره ی
+> Kleinfamilie ➡ خانواده کوچک
 
-* (sie) Wissen
-> بدونید (شما)
+> über ➡ در باره ی
 
-* Partnerschaft
-> پارتنرگری، شراکت زندگی
+> (sie) Wissen ➡ بدونید (شما)
 
-* besuchen
-> ملاقات کردن
+> Partnerschaft ➡ پارتنرگری، شراکت زندگی
 
-* Arbeitsplätze
-> محل های کار
+> besuchen ➡ ملاقات کردن
 
-* heiraten
-> ازدواج کردن
+> Arbeitsplätze ➡ محل های کار
 
-* ganze
-> کاملا
+> heiraten ➡ ازدواج کردن
 
-* unterwegs
-> در راه
+> ganze ➡ کاملا
 
-* sie finden das auch.
->  آن ها هم همین نظر رو دارن
+> unterwegs ➡ در راه
 
-* lange Pause.
->  وقفه طولانی
+> sie finden das auch. ➡ آن ها هم همین نظر رو دارن
 
-* Monat
->  ماه
+> lange Pause ➡ وقفه طولانی
 
-* Monate
->  ماه ها
+> Monat ➡ ماه
 
-* Verdienst
->  پول گرفتن، درآمد داشتن
+> Monate ➡ ماه ها
 
-* wohl
->  احتمالا، گویا، به نظر میرسد که
+> Verdienst ➡ پول گرفتن، درآمد داشتن
 
-* Bekommen
-> گرفتن
+> wohl ➡ احتمالا، گویا، به نظر میرسد که
 
-* glauben
-> باورداشنن
+> Bekommen ➡ گرفتن
 
-* Daran
->  به اون چیزی که قبلا اشاره شده
+> glauben ➡ باورداشتن
 
-* Tabelle
->  جدول
+> Daran ➡ به اون چیزی که قبلا اشاره شده
 
-* zeigt
->  نشان دادن  (shows)
+> Tabelle ➡ جدول
 
-* deutlich
-> به وضوح
+> zeigt ➡ نشان دادن (shows)
 
-* steigt
-> افزایش پیدا کردن
+> deutlich ➡ به وضوح
 
-* Ledigen
->  مجردها
+> steigt ➡ افزایش پیدا کردن
 
-* Geschidenen
->  مطعلقه ها
+> Ledigen ➡ مجردها
 
-* mehr
-> بیشتر
+> Geschidenen ➡ مطعلقه ها
 
-* Familienstand
-> وضعیت خانواده
+> mehr ➡ بیشتر
 
-* gleich
->  مساوی
+> Familienastand ➡ وضعیت خانواده
 
-* Prozent
-> percent
+> gleich ➡ مساوی
 
-* Puknt
-> نقطه
+> Prozent ➡ percent
 
-* komma
-> ویرگول
+> Puknt ➡ نقطه
 
-* bestimmte
->  مشخص
+> komma ➡ ویرگول
 
-* Lebenspartner
->  شریک زندگی
+> bestimmte ➡ مشخص
 
-* Lebensabschnittspartner
->  شریک بخشی از زندگی
+> Lebenspartner ➡ شریک زندگی
 
-* sondern
-> بلکه
+> Lebensabschnittspartner
+> ➡
+> شریک بخشی از زندگی
 
-* noch
-> هنوز و غیره
+> sondern ➡ بلکه
 
-* stimmt
->  درسته
+> noch ➡ ...هنوز و
 
-* wer
->  کی؟
+> stimmt ➡ درسته
 
-* schon
-> already
+> wer ➡ کی؟
 
-* nämlich
-> برای مثال، به عبارتی
+> schon ➡ already
 
-* treffen
->  ملاقات کردن
+> nämlich ➡ برای مثال، به عبارتی
 
-* wieder
->  دوباره
+> treffen ➡ ملاقات کردن
 
-* gerade noch
->  فقط، "همین!"
+> wieder ➡ دوباره
 
-* viel zu viel
-> خیلی بیش از حد
+> gerade noch ➡ فقط،" همین!"
 
-* meisten
-> اکثر، بیشتر
+> viel zu viel ➡ خیلی بیش از حد
 
-* in der Regel
-> معمولا
+> meisten ➡ اکثر، بیشتر
 
-* Regel
-> قانون
+> in der Regel ➡ معمولا
 
-* Bekommen erst
->  اول گرفتن
+> Regel ➡ قانون
 
-* nun
-> حالا
+> Bekommen erst ➡ اول گرفتن
 
-* Guck mal!
->  نگاه کن
+> nun ➡ حالا
 
-* (in der) Werbung
-> (در) تبلیقات
+> Guck mal! ➡ نگاه کن
 
-* Wirklichkeit
-> واقعیت
+> (in der) Werbung ➡ (در) تبلیقات
 
-* weniger
-> کمتر
+> Wirklichkeit ➡ واقعیت
 
-* Was ist los hier?
+> weniger ➡ کمتر
+
+> Was ist los hier? ➡
 > اینجا چه خبر است؟
 
-* immer mehr
-> بیشتر و بیشتر
+> immer mehr ➡ بیشتر و بیشتر
 
-* immer weniger
-> کمتر و کمتر
+> immer weniger ➡ کمتر و کمتر
 
-* heißt 
-> یعنی
+> heißt ➡ یعنی
 
-* möchten lieber
-> ترجیح دادن
+> möchten lieber ➡ ترجیح دادن
 
-* karriere
-> مسیر پیشرفت شغلی
+> karriere ➡ مسیر پیشرفت شغلی
 
-* ein schnelles Auto
-> یک ماشین سریع
+> ein schnelles Auto ➡ یک ماشین سریع
 
-* Jeder möchte  alt werden aber alt sein möchte keiner.
->  همه می خواهند پیر شوند، اما پیر بودن را هیچکس نمی خواهد.
+> Jeder möchte alt werden aber alt sein möchte keiner.
+> ➡
+> همه می خواهند پیر شوند، اما پیر بودن را هیچکس نمی خواهد.
 
-* witz
-> شوخی
+> witz ➡ شوخی
 
-* Psychotest
-> تست روانشناسی
+> Psychotest ➡ تست روانشناسی
 
-* Zukunft
->  آینده
+> Zukunft ➡ آینده
 
-* mehr als
->  بیشتر از (more than)
+> mehr als ➡ بیشتر از (more than)
 
-* auch mal
-> sometimes
+> auch mal ➡ sometimes
 
-* manchmal
-> sometimes
+> manchmal ➡ sometimes
 
-* die fernbedeinung
-> کنترل از راه دور
+> die fernbedeinung ➡ کنترل از راه دور
 
-* die Realität
->  واقعیت
+> die Realität ➡ واقعیت
 
-* die mannschaft
-> تیم
+> die mannschaft ➡ تیم
 
-* die stelle
-> مکان، محل
+> die stelle ➡ مکان، محل
 
-* der knopf
-> دکمه
+> der knopf ➡ دکمه
 
-
+---
 
 ## Verben Kojugation
-|*|Sprechen|Nehmen|Essen|Lesen|Geben|Sein|Haben|Mögen|
-|:---|:---:|:---:|:---:|:---:|:---:|:--:|:--:|:---:|
-|ich|Spreche |Nehme|Esse|Lese|Gebe|Bin|Habe|Möchte|
-|du|Sprichst|Nimmst|Isst|Liest|Gibst|Bist|Hst|Möchtest|
-|er/es/sie|Sprischt|Nimmt|Isst|Liest|Gibt|Ist|Hat|Möcht|
-|wir|Sprechen|Nehmen|Essen|Lesen|Geben|Sind|Haben|Möchten|
-|ihr|sprecht|Nehmt|Esst|Lest|Gebt|Seid|Habt|Möchtet|
-|sie/Sie|Sprechen|Nehmen|Essen|Lesen|Gehben|Sind|Haben|Möchten|
+
+| \*        | Sprechen | Nehmen | Essen | Lesen | Geben  | Sein  | Haben |  Mögen   |
+| :-------- | :------: | :----: | :---: | :---: | :----: | :---: | :---: | :------: |
+| ich       | Spreche  | Nehme  | Esse  | Lese  |  Gebe  |  Bin  | Habe  |  Möchte  |
+| du        | Sprichst | Nimmst | Isst  | Liest | Gibst  | Bist  |  Hst  | Möchtest |
+| er/es/sie | Sprischt | Nimmt  | Isst  | Liest |  Gibt  |  Ist  |  Hat  |  Möcht   |
+| wir       | Sprechen | Nehmen | Essen | Lesen | Geben  | Sind  | Haben | Möchten  |
+| ihr       | sprecht  | Nehmt  | Esst  | Lest  |  Gebt  | Seid  | Habt  | Möchtet  |
+| sie/Sie   | Sprechen | Nehmen | Essen | Lesen | Gehben | Sind  | Haben | Möchten  |
