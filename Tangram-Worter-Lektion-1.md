@@ -1,6 +1,7 @@
 # Lektion Eins
 
 ### Die Worter
+>
 > aktuell ➡  به روز
 
 > herzlich ➡ صمیمانه، قلبا
@@ -29,7 +30,7 @@
 
 > Noch ➡  همچنان، هنوز
 
-> Spaß ➡ لذت 
+> Spaß ➡ لذت
 
 > Schweizer ➡  سوئیسی
 
@@ -72,31 +73,33 @@
 > Nachbarn ➡  همسایه
 
 ### Deutche Flüsse
+>
 > Rhein
-> 
+>
 > Elbe
-> 
+>
 > Donau
-> 
+>
 
 ### Sprachen
+>
 > Niderlanden  ➡️ Niderländisch
-> 
+>
 > Frankreich und Kuxenburg  ➡️ Französisch
-> 
+>
 > Polen  ➡️ Polnish
-> 
+>
 > Tschechischen Republik  ➡️ Tschechisch
-> 
+>
 > Dänemark  ➡️ Dänisch
-> 
+>
 > Ungarn  ➡️ Ungarisch
-> 
+>
 > Belgien  ➡️ Französisch und Niderländisch
-> 
+>
 > Slowakischen Republik  ➡️ Slowakisch
-> 
+>
 > Slowenien  ➡️ Slowenisch
-> 
+>
 > Italien  ➡️ Italienisch
 
