@@ -2,152 +2,160 @@
 
 ### Die worter
 
-> Kleinfamilie ➡ خانواده کوچک
+> **die Kleinfamilie** ➡ خانواده کوچک
 
-> über ➡ در باره ی
+> **über** ➡ در باره ی
 
-> (sie) Wissen ➡ بدونید (شما)
+> **(sie) Wissen** ➡ بدونید (شما)
 
-> Partnerschaft ➡ پارتنرگری، شراکت زندگی
+> **die Partnerschaft** ➡ پارتنرگری، شراکت زندگی
 
-> besuchen ➡ ملاقات کردن
+> **besuchen** ➡ ملاقات کردن
 
-> Arbeitsplätze ➡ محل های کار
+> **der Arbeitsplatz - die Arbeitsplätze** ➡ محل های کار
 
-> heiraten ➡ ازدواج کردن
+> **heiraten** ➡ ازدواج کردن
 
-> ganze ➡ کاملا
+> **ganze** ➡ کاملا
 
-> unterwegs ➡ در راه
+> **unterwegs** ➡ در راه
 
-> sie finden das auch. ➡ آن ها هم همین نظر رو دارن
+> **sie finden das auch.** ➡ آن ها هم همین نظر رو دارن
 
-> lange Pause ➡ وقفه طولانی
+> **die Pause** ➡ وقفه
 
-> Monat ➡ ماه
+> **lange Pause** ➡ وقفه طولانی
 
-> Monate ➡ ماه ها
+> **der Monat** ➡ ماه
 
-> Verdienst ➡ پول گرفتن، درآمد داشتن
+> **die Monate** ➡ ماه ها
 
-> wohl ➡ احتمالا، گویا، به نظر میرسد که
+> **Verdienen** ➡ پول گرفتن، درآمد داشتن
 
-> Bekommen ➡ گرفتن
+> **wohl** ➡ احتمالا، گویا، به نظر میرسد که
 
-> glauben ➡ باورداشتن
+> **Bekommen** ➡ گرفتن
 
-> Daran ➡ به اون چیزی که قبلا اشاره شده
+> **glauben** ➡ باورداشتن
 
-> Tabelle ➡ جدول
+> **Daran** ➡ به اون چیزی که قبلا اشاره شده
 
-> zeigt ➡ نشان دادن (shows)
+> **die Tabelle** ➡ جدول
 
-> deutlich ➡ به وضوح
+> **zeigen** ➡ نشان دادن (show)
 
-> steigt ➡ افزایش پیدا کردن
+> **deutlich** ➡ به وضوح
 
-> Ledigen ➡ مجردها
+> **steigen** ➡ افزایش پیدا کردن
 
-> Geschidenen ➡ مطعلقه ها
+> **Ledigen** ➡ مجردها
 
-> mehr ➡ بیشتر
+> **der unterschied** ➡  difference
 
-> Familienastand ➡ وضعیت خانواده
+> **Geschidenen** ➡ مطعلقه ها
 
-> gleich ➡ مساوی
+> **mehr** ➡ بیشتر
 
-> Prozent ➡ percent
+> **immer mehr** ➡ more and more
 
-> Puknt ➡ نقطه
+> **Familienastand** ➡ وضعیت خانواده
 
-> komma ➡ ویرگول
+> **gleich** ➡ مساوی
 
-> bestimmte ➡ مشخص
+> **Prozent** ➡ percent
 
-> Lebenspartner ➡ شریک زندگی
+> **Puknt** ➡ نقطه
 
-> Lebensabschnittspartner
+> **komma** ➡ ویرگول
+
+> **bestimmt** ➡ مشخص, certain
+
+> **der Lebenspartner** ➡ شریک زندگی
+
+> **der Lebensabschnittspartner**
 > ➡
 > شریک بخشی از زندگی
 
-> sondern ➡ بلکه
+> **sondern** ➡ بلکه
 
-> noch ➡ ...هنوز و
+> **noch** ➡ ...هنوز و
 
-> stimmt ➡ درسته
+> **stimmt** ➡ درسته
 
-> wer ➡ کی؟
+> **wer** ➡ کی؟
 
-> schon ➡ already
+> **schon** ➡ already
 
-> nämlich ➡ برای مثال، به عبارتی
+> **nämlich** ➡ برای مثال، به عبارتی
 
-> treffen ➡ ملاقات کردن
+> **treffen** ➡ ملاقات کردن
 
-> wieder ➡ دوباره
+> **wieder** ➡ دوباره
 
-> gerade noch ➡ فقط،" همین!"
+> **gerade noch** ➡ فقط،" همین!", just
 
-> viel zu viel ➡ خیلی بیش از حد
+> **gerade** ➡ straight
 
-> meisten ➡ اکثر، بیشتر
+> **viel zu viel** ➡ خیلی بیش از حد, way too much
 
-> in der Regel ➡ معمولا
+> **meisten** ➡ اکثر، بیشتر
 
-> Regel ➡ قانون
+> **in der Regel** ➡ معمولا
 
-> Bekommen erst ➡ اول گرفتن
+> **Regel** ➡ قانون
 
-> nun ➡ حالا
+> **Bekommen erst** ➡ اول گرفتن
 
-> Guck mal! ➡ نگاه کن
+> **nun** ➡ حالا
 
-> (in der) Werbung ➡ (در) تبلیقات
+> **Guck mal!** ➡ نگاه کن
 
-> Wirklichkeit ➡ واقعیت
+> **die Werbung** ➡ تبلیغات
 
-> weniger ➡ کمتر
+> **Wirklichkeit** ➡ واقعیت
 
-> Was ist los hier? ➡
+> **weniger** ➡ کمتر
+
+> **Was ist los hier**? ➡
 > اینجا چه خبر است؟
 
-> immer mehr ➡ بیشتر و بیشتر
+> **immer mehr** ➡ بیشتر و بیشتر
 
-> immer weniger ➡ کمتر و کمتر
+> **immer weniger** ➡ کمتر و کمتر
 
-> heißt ➡ یعنی
+> **heißt** ➡ یعنی
 
-> möchten lieber ➡ ترجیح دادن
+> **möchten lieber** ➡ ترجیح دادن
 
-> karriere ➡ مسیر پیشرفت شغلی
+> **die Karriere** ➡ مسیر پیشرفت شغلی
 
-> ein schnelles Auto ➡ یک ماشین سریع
+> **ein schnelles Auto** ➡ یک ماشین سریع
 
-> Jeder möchte alt werden aber alt sein möchte keiner.
+> **Jeder möchte alt werden aber alt sein möchte keiner.**
 > ➡
 > همه می خواهند پیر شوند، اما پیر بودن را هیچکس نمی خواهد.
 
-> witz ➡ شوخی
+> **der witz** ➡ شوخی, joke
 
-> Psychotest ➡ تست روانشناسی
+> **der Psychotest** ➡ تست روانشناسی
 
-> Zukunft ➡ آینده
+> **die Zukunft** ➡ آینده
 
-> mehr als ➡ بیشتر از (more than)
+> **mehr als** ➡ بیشتر از (more than)
 
-> auch mal ➡ sometimes
+> **auch mal** ➡ sometimes
 
-> manchmal ➡ sometimes
+> **manchmal** ➡ sometimes
 
-> die fernbedeinung ➡ کنترل از راه دور
+> **die Fernbedeinung** ➡ کنترل از راه دور
 
-> die Realität ➡ واقعیت
+> **die Realität** ➡ واقعیت
 
-> die mannschaft ➡ تیم
+> **die Mannschaft** ➡ تیم
 
-> die stelle ➡ مکان، محل
+> **die Stelle** ➡ مقام ،پست
 
-> der knopf ➡ دکمه
+> **der knopf** ➡ دکمه
 
 ---
 
@@ -156,7 +164,7 @@
 | \*        | Sprechen | Nehmen | Essen | Lesen | Geben  | Sein  | Haben |  Mögen   |
 | :-------- | :------: | :----: | :---: | :---: | :----: | :---: | :---: | :------: |
 | ich       | Spreche  | Nehme  | Esse  | Lese  |  Gebe  |  Bin  | Habe  |  Möchte  |
-| du        | Sprichst | Nimmst | Isst  | Liest | Gibst  | Bist  |  Hst  | Möchtest |
+| du        | Sprichst | Nimmst | Isst  | Liest | Gibst  | Bist  | Hast  | Möchtest |
 | er/es/sie | Sprischt | Nimmt  | Isst  | Liest |  Gibt  |  Ist  |  Hat  |  Möcht   |
 | wir       | Sprechen | Nehmen | Essen | Lesen | Geben  | Sind  | Haben | Möchten  |
 | ihr       | sprecht  | Nehmt  | Esst  | Lest  |  Gebt  | Seid  | Habt  | Möchtet  |

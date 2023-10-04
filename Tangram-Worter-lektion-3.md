@@ -2,124 +2,126 @@
 
 ### Die Worter
 
-> Textil ➡ منسوجات
+> **das Textil** ➡ منسوجات
 
-> Kaufmann ➡ فروشنده
+> **der Kaufmann** ➡ فروشنده
 
-> Textil-kaufmann ➡ فروشنده منسوجات
+> **Textil-kaufmann** ➡ فروشنده منسوجات
 
-> Zeitmaschine ➡ ماشین زمان
+> **die Zeitmaschine** ➡ ماشین زمان
 
-> der Zoll, Die Zölle ➡ گمرک
+> **der Zoll, Die Zölle** ➡ گمرک
 
-> Einreise ➡ **ورود** هنگام سفر
+> **die Einreise** ➡ **ورود** هنگام سفر
 
-> Ausreise ➡ **خروج** هنگام سفر
+> **die Ausreise** ➡ **خروج** هنگام سفر
 
-> Schnellkurs ➡ دوره سریع
+> **der Schnellkurs** ➡ دوره سریع, crash course
 
-> mal ➡ بار، دفعه
+> **mal** ➡ بار، دفعه
 
-> durch ➡ Through ➡ از طریق، بین
+> **durch** ➡ Through ➡ از طریق، بین
 
-> auch noch ➡ همچنین ، Also
+> **auch noch** ➡ همچنین ، Also
 
-> geht das ganz bequem
+> **geht das ganz bequem**
 > ➡
 > این کاملا راحت می شود
 
-> dort ➡ آنجا
+> **dort** ➡ آنجا , there
 
-> damit ➡ با آن
+> **damit** ➡ با آن
 
-> auf der landkarte ➡ روی نقشه
+> **auf der landkarte** ➡ روی نقشه
 
-> bunter ➡ رنگارنگ
+> **bunter** ➡ رنگارنگ
 
-> eigene ➡ own ➡ خود
+> **eigene** ➡ own ➡ خود
 
-> ein paar ➡ a couple ➡ یه چند تا
+> **ein paar** ➡ a couple ➡ یه چند تا
 
-> Beispiel ➡ Beispiele ➡ مثال ها
+> **das Beispiel** ➡ Beispiele ➡ مثال ها
 
-> Währung ➡ currency ➡ واحد پول
+> **Währung** ➡ currency ➡ واحد پول
 
-> Quadratkilometer ➡ کیلومتر مربع
+> **Quadratkilometer** ➡ کیلومتر مربع
 
-> verschiedene ➡ different ➡ متفاوت
+> **verschiedene** ➡ different ➡ متفاوت
 
-> Ganz Schön ➡ خیلی قشنگ، Quite
+> **Ganz Schön** ➡ خیلی قشنگ، Quite
 
-> davon ➡ از آن
+> **davon** ➡ از آن
 
-> noch mehr ➡ حتی بیشتر
+> **noch mehr** ➡ حتی بیشتر
 
-> die Ware, die Waren ➡ کالاها
+> **die Ware, die Waren** ➡ کالاها
 
-> Er verkauft ➡ او فروخت
+> **Er verkauft** ➡ او فروخت
 
-> Er kauft ➡ او خرید
+> **Er kauft** ➡ او خرید
 
-> ziemlich ➡ Quite, کاملا، خیلی
+> **ziemlich** ➡ Quite, کاملا، خیلی
 
-> in der mitter ➡ وسط
+> **in der mitter** ➡ وسط
 
-> noch immer ➡ still, هنوز، همچنان
+> **noch immer** ➡ still, هنوز، همچنان
 
-> Herrscher ➡ حاکم
+> **Herrscher** ➡ حاکم
 
-> einzige ➡ only, فقط
+> **einzige** ➡ only, فقط
 
-> eine einzige ➡ a single one ➡ یک واحد
+> **eine einzige** ➡ a single one ➡ یک واحد
 
-> die Sache mit dem Geld ➡ موضوع پول
+> **die Sache mit dem Geld** ➡ موضوع پول
 
-> Sache ➡ موضوع, Matter
+> **die Sache** ➡ موضوع, Matter
 
-> sicher ganz toll ➡ defenitley great, قطعا عالی
+> **sicher ganz toll** ➡ defenitley great, قطعا عالی
 
-> sich ➡ itself
+> **sich** ➡ itself
 
-> daüber ➡ about that
+> **daüber** ➡ about that
 
-> gar nicht ➡ اصلا , Not at all
+> **gar nicht** ➡ اصلا , Not at all
 
-> nicht mehr nach ➡ No more
+> **nicht mehr nach** ➡ No more
 
-> nämlich schon wieder ➡ یعنی دوباره
+> **nämlich schon wieder** ➡ یعنی دوباره
 
-> nun ➡ حالا دیگه، اکنون
+> **nun** ➡ حالا دیگه، اکنون
 
-> Mit der zahl ZWEI ➡ با عدد 2
+> **Mit der zahl ZWEI** ➡ با عدد 2
 
-> Weltkriege ➡ جنگهای جهانی
+> **Weltkriege** ➡ جنگهای جهانی
 
-> wenn auch ➡  با اینکه
+> **der Krieg** ➡ جنگ
 
-> vergleichbare ➡  قابل مقایسه
+> **wenn auch** ➡  با اینکه
 
-> Diktaturen ➡  دیکتاتوری ها
+> **vergleichbare** ➡  قابل مقایسه
 
-> Staaten ➡  ایالات
+> **Diktaturen** ➡  دیکتاتوری ها
 
-> Der Handel ➡  تجارت
+> **Staaten** ➡  ایالات
 
-> Europäischen Union ➡  اتحادیه اروپا
+> **Der Handel** ➡  تجارت
 
-> wie noch nie ➡  چنان که هرگز نبوده, as never before
+> **Europäischen Union** ➡  اتحادیه اروپا
 
-> bald ➡ بزودی
+> **wie noch nie** ➡  چنان که هرگز نبوده, as never before
 
-> zufrieden ➡ راضی , satisfied
+> **bald** ➡ بزودی
 
-> richtiger kaufmann ➡ تاجر واقعی
+> **zufrieden** ➡ راضی , satisfied
 
-> stellen ➡ place
+> **richtiger kaufmann** ➡ تاجر واقعی
 
-> Überraschung ➡ surprise
+> **stellen** ➡ place
 
-> glücklich ➡ happy
+> **Überraschung** ➡ surprise
 
-> Nehmen ➡ Take, گرفتن
+> **glücklich** ➡ happy
 
-> Geben ➡ دادن، give 
+> **Nehmen** ➡ Take, گرفتن
+
+> **Geben** ➡ دادن، give 

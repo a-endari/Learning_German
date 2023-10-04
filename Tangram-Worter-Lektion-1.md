@@ -1,105 +1,105 @@
 # Lektion Eins
 
 ### Die Worter
->
-> aktuell ➡  به روز
 
-> herzlich ➡ صمیمانه، قلبا
+> **aktuell** ➡ به روز , current
 
-> Fast ➡ Almost
+> **herzlich** ➡ صمیمانه، قلبا
 
-> Leute ➡ مردم
+> **Fast** ➡ Almost
 
-> Landeskunder ➡  مطالعات منطقه ای
+> **die Leute** ➡ مردم
 
-> Geografie ➡ جغرافی
+> **Landeskunder** ➡ مطالعات منطقه ای
 
-> Seit ➡ Since
+> **Geografie** ➡ جغرافی
 
-> Einwohner ➡  سکنه، جمعیت
+> **Seit** ➡ Since
 
-> Hafen ➡ بندر
+> **der Einwohner** ➡ سکنه، جمعیت
 
-> Firma ➡ شرکت
+> **der Hafen** ➡ بندر
 
-> Huptstadt ➡ مرکز، پایتخت
+> **die Firma** ➡ شرکت
 
-> Bundesland - Bundesländer ➡  استان ها - استان
+> **die Hauptstadt** ➡ مرکز، پایتخت
 
-> Osten ➡ شرق
+> **das Bundesland - die Bundesländer** ➡ استان ها - استان
 
-> Noch ➡  همچنان، هنوز
+> **der Osten** ➡ شرق
 
-> Spaß ➡ لذت
+> **Noch** ➡ همچنان، هنوز
 
-> Schweizer ➡  سوئیسی
+> **der Spaß** ➡ لذت
 
-> Grüezi ➡  خداحافظی در سوئیس
+> **der Schweizer** ➡ سوئیسی
 
-> Büro ➡ دفتر
+> **Grüezi** ➡ خداحافظی در سوئیس
 
-> Reisebüro ➡  دفتر مسافرتی
+> **das Büro** ➡ دفتر
 
-> Dann ➡  پس
+> **das Reisebüro** ➡ دفتر مسافرتی
 
-> zewischen ➡ بین، وسط
+> **Dann** ➡ پس
 
-> Jeder ➡  هرکس، همه
+> **zwischen** ➡ بین، وسط
 
-> jedes jahr ➡  هر سال
+> **Jeder** ➡ هرکس، همه
 
-> Grüß Gott! ➡  روز بخیر (سلام) در اتریش و جنوب آلمان
+> **jedes jahr** ➡ هر سال
 
-> ganz ➡  کاملا
+> **Grüß Gott!** ➡ روز بخیر (سلام) در اتریش و جنوب آلمان
 
-> ja jetzt ➡  حالا دیگه
+> **ganz** ➡ کاملا
 
-> Also dann. ➡ خب پس
+> **ja jetzt** ➡ حالا دیگه
 
-> Fächer ➡  مساحت
+> **Also dann.** ➡ خب پس
 
-> Sprache ➡  زبان
+> **die Fläche** ➡ مساحت
 
-> Autokennzeichen ➡  علامت پلاک
-> D : Deutchland
-> A : Österreich
-> CH: Schweiz
+> **die Sprache** ➡ زبان
 
-> Deutchsprachigen Länder
- ➡ کشورهای آلمانی زبان
+> **die Lösung** ➡ Solution - راه حل
 
-> Lösung ➡ Solution - راه حل
+> **der Nachbar**, **die Nachbarn** ➡ همسایه
 
-> Nachbarn ➡  همسایه
+> **der Fluss** ➡ رودخانه
+
+> **das Autokennzeichen** ➡ علامت پلاک
+> **D** : Deutchland
+> **A** : Österreich
+> **CH**: Schweiz
 
 ### Deutche Flüsse
+
+> 1. Rhein
 >
-> Rhein
+> 2. Elbe
 >
-> Elbe
->
-> Donau
->
+> 3. Donau 
 
 ### Sprachen
->
-> Niderlanden  ➡️ Niderländisch
->
-> Frankreich und Kuxenburg  ➡️ Französisch
->
-> Polen  ➡️ Polnish
->
-> Tschechischen Republik  ➡️ Tschechisch
->
-> Dänemark  ➡️ Dänisch
->
-> Ungarn  ➡️ Ungarisch
->
-> Belgien  ➡️ Französisch und Niderländisch
->
-> Slowakischen Republik  ➡️ Slowakisch
->
-> Slowenien  ➡️ Slowenisch
->
-> Italien  ➡️ Italienisch
 
+> **Deutschsprachigen Länder**
+> ➡ کشورهای آلمانی زبان
+
+> - Nederlanden ➡️ Niderländisch
+>
+> - Frankreich und Luxemburg ➡️ Französisch
+>
+> - Polen ➡️ Polnish
+>
+> - Tschechischen Republik ➡️ Tschechisch
+>
+> - Dänemark ➡️ Dänisch
+>
+> - Ungarn ➡️ Ungarisch
+>
+> - Belgien ➡️ Französisch und Niderländisch
+>
+> - Slowakischen Republik ➡️ Slowakisch
+>
+> - Slowenien ➡️ Slowenisch
+>
+> - Italien ➡️ Italienisch
