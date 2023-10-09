@@ -1,4 +1,3 @@
-> **einzige** ➡ only , فقط
 
 > **sicher** ➡ secure , امن است
 
@@ -19,4 +18,10 @@
 > **Ãœberraschung** ➡ Surprise , تعجب
 
 > **Wiedervereinigung** ➡ reunion , تجدید دیدار
+
+> **schicken** ➡ send , ارسال
+
+> **das thema** ➡ the topic , موضوع
+
+> **informieren** ➡ inform , آگاه کردن
 
