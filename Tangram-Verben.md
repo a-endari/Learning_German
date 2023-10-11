@@ -1,6 +1,6 @@
 # Konjugation Verben
 
-### Empty
+## Empty
 
 ---
 
@@ -343,7 +343,9 @@
 | Sie |  werden   |
 
 ### Lassen
-> Lassen ➡ Let, اجازه دادن
+
+> Let
+
 ---
 
 | \*  | Präsens |
@@ -354,3 +356,55 @@
 | wir | lassen  |
 | ihr |  lasst  |
 | Sie | lassen  |
+
+# Trennbar verben
+
+## aufstehen
+
+> get up
+
+| \*  |    Präsens     |
+| --- | :------------: |
+| ich | stehe ... auf  |
+| du  | stehst ... auf |
+| es  | steht ... auf  |
+| wir | stehen ... auf |
+| ihr | steht ... auf  |
+| Sie | stehen ... auf |
+
+## abholen
+
+> pick up
+
+| \*  |   Präsens    |
+| --- | :----------: |
+| ich | hole ... ab  |
+| du  | holst ... ab |
+| es  | holt ... ab  |
+| wir | holen ... ab |
+| ihr | holt ... ab  |
+| Sie | holen ... ab |
+
+## zurückkommen
+> Come Back
+
+| \*  |      Präsens      |
+| --- | :---------------: |
+| ich | komme ... zurück  |
+| du  | kommst ... zurück |
+| es  | kommt ... zurück  |
+| wir | kommen ... zurück |
+| ihr | kommt ... zurück  |
+| Sie | kommen ... zurück |
+
+## ausziehen
+> move out , get undressed
+
+| \*  |    Präsens     |
+| --- | :------------: |
+| ich | ziehe ... aus  |
+| du  | ziehst ... aus |
+| es  | zieht ... aus  |
+| wir | ziehen ... aus |
+| ihr | zieht ... aus  |
+| Sie | ziehen ... aus |

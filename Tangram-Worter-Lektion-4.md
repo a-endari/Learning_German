@@ -50,6 +50,10 @@
 
 > **Miete** ➡ rent, اجاره
 
+> **mieten** ➡ renting
+
+> **zu viert** -> in a group of four
+
 > **weil** ➡ because
 
 > **Streit** ➡ fight,دعوا
@@ -57,6 +61,8 @@
 > **Chaos** ➡ هرج و مرج
 
 > **unsicher** ➡ unsure, نامطمئن
+
+> **auch danach** ➡ even after that
 
 > **vor allem** ➡ above all, مهمتر از همه
 
