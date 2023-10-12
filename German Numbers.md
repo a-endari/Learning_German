@@ -1,4 +1,4 @@
-#German Numbers
+# German Numbers
 
 ### Die Zahle
 
@@ -27,3 +27,7 @@
 > Zewölf 12
 
 > Dreizehn 13
+
+> Vierzehn 14
+
+> fünfzehn 15

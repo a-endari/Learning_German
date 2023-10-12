@@ -3,7 +3,7 @@
 - Guten Tag, wie heißen Sie?
 - Ich heiße Abbas Endari
 - Freut mich Sehr.
-- > Very nice to meet you.
+- Very nice to meet you.
 - Woher kommen Sie, Herr Endari?
 - Entshculdigung, sprechen Sie Deutsch?
 - Ja, ich spreche Deutsch!
