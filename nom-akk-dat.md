@@ -69,3 +69,14 @@
 | Fe  | ihre    | ihre  | ihrer     |
 | Nt  | ihr     | ihr   | ihrem     |
 | Pl  | ihre    | ihre  | ihren + n |
+
+
+
+
+## Artikel
+| \*        | Masculine | femmenine | neutral | plural |
+| --------- | --------- | --------- | ------- | ------ |
+| Nominativ | der       | die       | das     | die    |
+| Akkusativ | den       | die       | das     | die    |
+| Dativ     | dem       | der       | dem     | den    |
+| Genetive  | des       | der       | des     | der    |

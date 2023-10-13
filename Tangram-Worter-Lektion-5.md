@@ -4,7 +4,7 @@
 
 > **zuerst** ➡ first , اولین
 
-> **Lebensmittel** ➡ Groceries , مواد غذایی
+> **das Lebensmittel** ➡ Groceries , مواد غذایی
 
 > **einkaufen** ➡ shopping , خريد كردن
 
@@ -53,3 +53,14 @@
 > **der Teil** ➡ the part , بخش
 
 > **die Teile** ➡ the parts , قطعات
+
+> **inzwischen** ➡ in the meantime , در عین حال
+
+> **das Geschäft** ➡ the business , تجارت
+
+> **garantiert** ➡ guaranteed , تضمین
+
+> **Viel Erfolg** ➡ Good luck , موفق باشی
+
+> **Guten Appetit** ➡ Bon appetit , نوش جان
+

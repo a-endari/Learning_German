@@ -1,6 +1,6 @@
 # Konjugation Verben
 
-## Empty
+### Empty
 
 ---
 
@@ -15,16 +15,18 @@
 
 ### Sein
 
+- **Partizip II**: gewesen
+
 ---
 
-| \*  | Präsens |
-| --- | :-----: |
-| ich |   bin   |
-| du  |  bist   |
-| es  |   ist   |
-| wir |  sind   |
-| ihr |  seid   |
-| Sie |  sind   |
+| \*  | Präsens | Präteritum |
+| --- | :-----: | :--------: |
+| ich |   bin   |    war     |
+| du  |  bist   |   warst    |
+| es  |   ist   |    war     |
+| wir |  sind   |   waren    |
+| ihr |  seid   |    wart    |
+| Sie |  sind   |   waren    |
 
 ### Kommen
 
@@ -171,16 +173,18 @@
 
 ### Haben
 
+- **Parizpt**: gehabt
+
 ---
 
-| \*  | Präsens |
-| --- | :-----: |
-| ich |  habe   |
-| du  |  hast   |
-| es  |   hat   |
-| wir |  haben  |
-| ihr |  habt   |
-| Sie |  haben  |
+| \*  | Präsens | Präteritum |
+| --- | :-----: | :--------: |
+| ich |  habe   |   hatte    |
+| du  |  hast   |  hattest   |
+| es  |   hat   |   hatte    |
+| wir |  haben  |   hatten   |
+| ihr |  habt   |   hattet   |
+| Sie |  haben  |   hatten   |
 
 ### Fahren
 
@@ -344,7 +348,7 @@
 
 ### Lassen
 
-> Let
+> Lassen ➡ Let, اجازه دادن
 
 ---
 
