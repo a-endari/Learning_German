@@ -1,14 +1,3 @@
-Vergangenheit
-Gegenwart
-zukunft
-pra"teritum
-gestern
-vorgestern
-letztes Jahr
-letzte Woche
-Vor ein paar Tagen (Jahren)
-munter - mu"de
-pu"nktlich
 empfehlen
 bezahlen
 bekommen
@@ -17,22 +6,20 @@ missverstehen
 empfangen
 entdecken
 entleeren
-mu"lltonne
-erza"hlen
-Geschichten
+erzählen
+geschichten
 erkennen
-geho"ren
+gehören
 gefallen
 missbrauchen
-Vertrauen
-Im Unterricht
-Anweisungen
+vertrauen
+im unterricht
+anweisungen
 verkaufen
 verlieren
-zersto"ren
+zerstören
 zerkleinern
-Unterricht
-Erdbeben
+unterricht
 zerkleinern
 sprechen hat gesprochen
 essen hat gegessen
@@ -52,8 +39,8 @@ kommen ist gekommen
 springen ist gesprungen
 reisen ist gereist
 schwimmen ist geschwommen
-Losgehen ist Losgegangen
-Laufen ist gekaufen
+losgehen ist losgegangen
+laufen ist gekaufen
 wandern ist gewandert
 sterben ist gestorben
 einschlafen ist eingeschlafen
@@ -62,8 +49,7 @@ wachsen ist gewachsen
 aufstehen ist aufgestanden
 bleiben ist geblieben
 sein ist gewesen  
-wo bist du gewesen?
-passieren ist passiert  --> was ist passiert?
-werden ist geworden -->  oma ist heute 70 geworden.
-fahren ist/hat gefahren --> ich bin nach ko"ln gefahren - ich habe mein neues Auto gefahren.  
-helfen geholfen
+passieren ist passiert 
+werden ist geworden  
+fahren ist/hat gefahren   
+helfen geho blfen

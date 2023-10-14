@@ -64,3 +64,45 @@
 
 > **Guten Appetit** ➡ Bon appetit , نوش جان
 
+> **mülltonne** ➡ garbage can , قوطی آشغال
+
+> **erdbeben** ➡ earthquake , زمين لرزه
+
+> **zukunft** ➡ future , آینده
+
+> **präteritum** ➡ past tense , زمان گذشته
+
+> **gestern** ➡ yesterday , دیروز
+
+> **vorgestern** ➡ the day before yesterday , پریروز
+
+> **letztes jahr** ➡ last year , سال گذشته
+
+> **letzte woche** ➡ last week , هفته گذشته
+
+> **vor ein paar tagen (jahren)** ➡ a few days (years) ago , چند روز (سال) پیش
+
+> **munter - müde** ➡ cheerful - tired , شاد - خسته
+
+> **pünktlich** ➡ on time , به موقع
+
+> **gegenwart** ➡ present , حاضر
+
+> **sogar** ➡ even , حتی
+
+> **Vergangenheit** ➡ Past , گذشته
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
