@@ -70,13 +70,26 @@
 | Nt  | ihr     | ihr   | ihrem     |
 | Pl  | ihre    | ihre  | ihren + n |
 
-
-
-
 ## Artikel
-| \*        | Masculine | femmenine | neutral | plural |
-| --------- | --------- | --------- | ------- | ------ |
-| Nominativ | der       | die       | das     | die    |
-| Akkusativ | den       | die       | das     | die    |
-| Dativ     | dem       | der       | dem     | den    |
-| Genetive  | des       | der       | des     | der    |
+
+| \*        | Masculine  | femmenine | neutral    | plural  |
+| --------- | ---------- | --------- | ---------- | ------- |
+| Nominativ | der        | die       | das        | die     |
+| Akkusativ | den        | die       | das        | die     |
+| Dativ     | dem        | der       | dem        | den + n |
+| Genetive  | des + (e)s | der       | des + (e)s | der     |
+
+## Genetiv
+
+-   Wessen?
+
+| \*    |   Masculine    | femmenine |    neutral     | plural  |
+| ----- | :------------: | :-------: | :------------: | :-----: |
+| ich   | meines + (e)s  |  meiner   | meines + (e)s  | meiner  |
+| du    | deines + (e)s  |  deiner   | deines + (e)s  | deiner  |
+| er/es | seines + (e)s  |  seiner   | seines + (e)s  | seiner  |
+| sie   |  ihres + (e)s  |   ihrer   |  ihres + (e)s  |  ihrer  |
+| wir   | unseres + (e)s |  unserer  | unseres + (e)s | unserer |
+| ihr   |  eures + (e)s  |   eurer   |  eures + (e)s  |  eurer  |
+| sie   |  ihres + (e)s  |   ihrer   |  ihres + (e)s  |  ihrer  |
+| Sie   |  Ihres + (e)s  |   Ihrer   |  Ihres + (e)s  |  Ihrer  |

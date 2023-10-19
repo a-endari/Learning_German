@@ -58,7 +58,7 @@
 
 > **die Fläche** ➡ مساحت
 
-> **die Sprache** ➡ زبان
+> **die Sprache** ➡  زبان
 
 > **die Lösung** ➡ Solution - راه حل
 
@@ -66,7 +66,7 @@
 
 > **der Fluss** ➡ رودخانه
 
-> **das Autokennzeichen** ➡ علامت پلاک
+> **das Autokennzeichen** ➡  علامت پلاک
 > **D** : Deutchland
 > **A** : Österreich
 > **CH**: Schweiz

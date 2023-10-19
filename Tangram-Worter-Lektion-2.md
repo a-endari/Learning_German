@@ -50,7 +50,7 @@
 
 > **Ledigen** ➡ مجردها
 
-> **der unterschied** ➡  difference
+> **der unterschied** ➡ difference
 
 > **Geschidenen** ➡ مطعلقه ها
 
@@ -161,11 +161,11 @@
 
 ## Verben Kojugation
 
-| \*        | Sprechen | Nehmen | Essen | Lesen | Geben  | Sein  | Haben |  Mögen   |
-| :-------- | :------: | :----: | :---: | :---: | :----: | :---: | :---: | :------: |
-| ich       | Spreche  | Nehme  | Esse  | Lese  |  Gebe  |  Bin  | Habe  |  Möchte  |
-| du        | Sprichst | Nimmst | Isst  | Liest | Gibst  | Bist  | Hast  | Möchtest |
-| er/es/sie | Sprischt | Nimmt  | Isst  | Liest |  Gibt  |  Ist  |  Hat  |  Möcht   |
-| wir       | Sprechen | Nehmen | Essen | Lesen | Geben  | Sind  | Haben | Möchten  |
-| ihr       | sprecht  | Nehmt  | Esst  | Lest  |  Gebt  | Seid  | Habt  | Möchtet  |
-| sie/Sie   | Sprechen | Nehmen | Essen | Lesen | Gehben | Sind  | Haben | Möchten  |
+| \*        | Sprechen | Nehmen | Essen | Lesen | Geben  | Sein | Haben |  Mögen   |
+| :-------- | :------: | :----: | :---: | :---: | :----: | :--: | :---: | :------: |
+| ich       | Spreche  | Nehme  | Esse  | Lese  |  Gebe  | Bin  | Habe  |  Möchte  |
+| du        | Sprichst | Nimmst | Isst  | Liest | Gibst  | Bist | Hast  | Möchtest |
+| er/es/sie | Sprischt | Nimmt  | Isst  | Liest |  Gibt  | Ist  |  Hat  |  Möchte  |
+| wir       | Sprechen | Nehmen | Essen | Lesen | Geben  | Sind | Haben | Möchten  |
+| ihr       | sprecht  | Nehmt  | Esst  | Lest  |  Gebt  | Seid | Habt  | Möchtet  |
+| sie/Sie   | Sprechen | Nehmen | Essen | Lesen | Gehben | Sind | Haben | Möchten  |

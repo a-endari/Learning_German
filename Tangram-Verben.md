@@ -1,11 +1,9 @@
-# Konjugation Verben
-
 ### Empty
 
 ---
 
-| \*  | Präsens |
-| --- | :-----: |
+| \*  | Präsens | Präteritum |
+| --- | :-----: | :--------: |
 | ich |         |
 | du  |         |
 | es  |         |
@@ -15,7 +13,7 @@
 
 ### Sein
 
-- **Partizip II**: gewesen
+-   **Partizip II**: ist gewesen
 
 ---
 
@@ -30,6 +28,8 @@
 
 ### Kommen
 
+-   **Partizip II**: ist gekommen
+
 ---
 
 | \*  | Präsens |
@@ -42,6 +42,8 @@
 | Sie | kommen  |
 
 ### Gehen
+
+-   **Partizip II**: ist gegangen
 
 ---
 
@@ -56,6 +58,8 @@
 
 ### Sprechen
 
+-   **Partizip II**: hat gesprochen
+
 ---
 
 | \*  | Präsens  |
@@ -68,6 +72,8 @@
 | Sie | sprechen |
 
 ### Lesen
+
+-   **Partizip II**: hat gelesen
 
 ---
 
@@ -82,6 +88,8 @@
 
 ### Geben
 
+-   **Partizip II**: hat gegeben
+
 ---
 
 | \*  | Präsens |
@@ -94,6 +102,8 @@
 | Sie |  geben  |
 
 ### Nehmen
+
+-   **Partizip II**: hat genommen
 
 ---
 
@@ -108,6 +118,8 @@
 
 ### Essen
 
+-   **Partizip II**: hat gegessen
+
 ---
 
 | \*  | Präsens |
@@ -120,6 +132,8 @@
 | Sie |  essen  |
 
 ### Lernen
+
+-   **Partizip II**: hat gelernt
 
 ---
 
@@ -134,6 +148,8 @@
 
 ### Trinken
 
+-   **Partizip II**: hat getrunken
+
 ---
 
 | \*  | Präsens |
@@ -146,6 +162,8 @@
 | Sie | trinken |
 
 ### Heißen
+
+-   **Partizip II**: hat geheißen
 
 ---
 
@@ -160,6 +178,8 @@
 
 ### Sehen
 
+-   **Partizip II**: hat gesehen
+
 ---
 
 | \*  | Präsens |
@@ -173,7 +193,7 @@
 
 ### Haben
 
-- **Parizpt**: gehabt
+-   **Parizpt**:hat gehabt
 
 ---
 
@@ -188,6 +208,8 @@
 
 ### Fahren
 
+-   **Partizip II**: hat gefahren
+
 ---
 
 | \*  | Präsens |
@@ -200,6 +222,8 @@
 | Sie | fahren  |
 
 ### Laufen
+
+-   **Partizip II**: ist gelaufen
 
 ---
 
@@ -214,6 +238,8 @@
 
 ### Schlafen
 
+-   **Partizip II**: hat geschlafen
+
 ---
 
 | \*  | Präsens  |
@@ -227,6 +253,8 @@
 
 ### Waschen
 
+-   **Partizip II**: ist gewachsen
+
 ---
 
 | \*  | Präsens |
@@ -239,6 +267,8 @@
 | Sie | waschen |
 
 ### Hören
+
+-   **Partizip II**: hat gehört
 
 ---
 
@@ -255,6 +285,8 @@
 
 ### Möchten
 
+-   **Partizip II**: hat gemöchtet
+
 ---
 
 | \*  |  Präsens   |
@@ -267,6 +299,8 @@
 | Sie |  möchten   |
 
 ### Wollen
+
+-   **Partizip II**: hat gewollt
 
 ---
 
@@ -281,6 +315,8 @@
 
 ### Können
 
+-   **Partizip II**: hat gekonnt
+
 ---
 
 | \*  | Präsens  |
@@ -293,6 +329,8 @@
 | Sie |  können  |
 
 ### Müssen
+
+-   **Partizip II**: hat gemusst
 
 ---
 
@@ -307,6 +345,8 @@
 
 ### Dürfen
 
+-   **Partizip II**: hat gedurft
+
 ---
 
 | \*  | Präsens |
@@ -320,6 +360,8 @@
 
 ### Sollen
 
+-   **Partizip II**: hat gesollt
+
 ---
 
 | \*  | Präsens  |
@@ -332,6 +374,8 @@
 | Sie |  sollen  |
 
 ### Werden
+
+-   **Partizip II**: hat geworden
 
 > werden ➡ will, شدن
 
@@ -347,6 +391,8 @@
 | Sie |  werden   |
 
 ### Lassen
+
+-   **Partizip II**: hat gelassen
 
 > Lassen ➡ Let, اجازه دادن
 
@@ -365,6 +411,8 @@
 
 ## aufstehen
 
+-   **Partizip II**: ist aufgestanden
+
 > get up
 
 | \*  |    Präsens     |
@@ -378,6 +426,8 @@
 
 ## abholen
 
+-   **Partizip II**: hat abgeholt
+
 > pick up
 
 | \*  |   Präsens    |
@@ -390,6 +440,9 @@
 | Sie | holen ... ab |
 
 ## zurückkommen
+
+-   **Partizip II**: ist zurückgekommen
+
 > Come Back
 
 | \*  |      Präsens      |
@@ -402,6 +455,9 @@
 | Sie | kommen ... zurück |
 
 ## ausziehen
+
+-   **Partizip II**: ist ausgezogen
+
 > move out , get undressed
 
 | \*  |    Präsens     |
@@ -412,3 +468,80 @@
 | wir | ziehen ... aus |
 | ihr | zieht ... aus  |
 | Sie | ziehen ... aus |
+
+## Untrennbar
+
+### empfehlen
+
+-   **Partizip II**: hat empfohlen
+
+> recommend, advice
+
+| \*  |  Präsens   | Präteritum |
+| --- | :--------: | :--------: |
+| ich | empfehele  |
+| du  | empfiehlst |
+| es  |  empfielt  |
+| wir | empfehlen  |
+| ihr |  empfehlt  |
+| Sie | empfehlen  |
+
+### bezahlen
+
+-   **Partizip II**: hat bezahlt
+
+> pay, check out
+
+| \*  | Präsens  | Präteritum |
+| --- | :------: | :--------: |
+| ich | bezahle  |
+| du  | bezahlst |
+| es  | bezahlt  |
+| wir | bezahlen |
+| ihr | bezahlt  |
+| Sie | bezahlen |
+
+### bekommen
+
+-   **Partizip II**: hat bekommen
+
+> recieve, get
+
+| \*  | Präsens  | Präteritum |
+| --- | :------: | :--------: |
+| ich | bekomme  |
+| du  | bekommst |
+| es  | bekommt  |
+| wir | bekommen |
+| ihr | bekommt  |
+| Sie | bekommen |
+
+### verstehen
+
+-   **Partizip II**: hat verstanden
+
+> Undrestand
+
+| \*  |  Präsens  | Präteritum |
+| --- | :-------: | :--------: |
+| ich | verstehe  |
+| du  | verstehst |
+| es  | versteht  |
+| wir | verstehen |
+| ihr | versteht  |
+| Sie | verstehen |
+
+### missverstehen
+
+-   **Partizip II**: hat missverstanden
+
+> missundrestand, get wrong
+
+| \*  |    Präsens    | Präteritum |
+| --- | :-----------: | :--------: |
+| ich | missverstehe  |
+| du  | missverstehst |
+| es  | missverstehe  |
+| wir | missverstehen |
+| ihr | missversteht  |
+| Sie | missverstehen |

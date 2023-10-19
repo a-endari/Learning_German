@@ -1,7 +1,7 @@
 # Nützliche Sätze
 
 
-> **zum esten mal** ➡ for the first time , برای اولین بار
+> **zum ersten mal** ➡ for the first time , برای اولین بار
 
 > **ich bin nach köln gefahren - ich habe mein neues auto gefahren.** ➡ I went to Cologne - I drove my new car. , من به کلن رفتم - ماشین جدیدم را رانندگی کردم.
 
