@@ -12,5 +12,5 @@ for word in words:
     )
     with open("text.md", "a", encoding="utf-8") as output_file:
         output_file.write(
-            f"> [!NOTE]- {word_to_translate}\n> {translation_en} \n> {translation_fa}\n\n"
+            f"> [!tldr]- {word_to_translate}\n> {translation_en} \n> {translation_fa}\n\n"
         )
