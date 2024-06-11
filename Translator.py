@@ -4,19 +4,24 @@ from audio_grabber import download_audio, get_audio_url
 
 
 def remove_prefix(word: str):
+    seper = " -"
     if word.lower().startswith("der "):
-        return word.lower().removeprefix("der ").title()
+        new = word.lower().removeprefix("der ").title()
+        return new.split(seper, 1)[0]
     elif word.lower().startswith("die "):
-        return word.lower().removeprefix("die ").title()
+        new = word.lower().removeprefix("die ").title()
+        return new.split(seper, 1)[0]
     elif word.lower().startswith("das "):
-        return word.lower().removeprefix("das ").title()
+        new = word.lower().removeprefix("das ").title()
+        return new.split(seper, 1)[0]
     else:
-        return word
+        new = word.title()
+        return new.split(seper, 1)[0]
 
 
 with open("base.md", "r", encoding="utf-8") as basefile:
-    words = basefile.readlines()
-for word in words:
+    all_words = basefile.readlines()
+for word in all_words:
     if word.startswith("#"):
         with open("text.md", "a", encoding="utf-8") as output_file:
             output_file.write(f"{word}\n")
@@ -24,12 +29,12 @@ for word in words:
         pass
     else:
         word_to_translate = word.removesuffix("\n")
-        word_for_audio = remove_prefix(word_to_translate)
-        audio_url = get_audio_url(word_for_audio)
+        name_of_audio_file = remove_prefix(word_to_translate)
+        audio_url = get_audio_url(name_of_audio_file)
         if audio_url:
-            download_audio(audio_url, filename=word_to_translate)
+            download_audio(audio_url, filename=name_of_audio_file)
         else:
-            print(f"Audio file for {word_for_audio} not found!")
+            print(f"Audio file for {name_of_audio_file} not found!")
         translation_en = GoogleTranslator(source="de", target="en").translate(
             text=word_to_translate
         )
@@ -39,7 +44,7 @@ for word in words:
         with open("text.md", "a", encoding="utf-8") as output_file:
             if audio_url:
                 output_file.write(
-                    f"> [!tldr]- {word_to_translate}\n> ![[{word_to_translate}.ogg]]\n> {translation_en}\n> {translation_fa}\n\n"
+                    f"> [!tldr]- {word_to_translate}\n> ![[{name_of_audio_file}.ogg]]\n> {translation_en}\n> {translation_fa}\n\n"
                 )
             else:
                 output_file.write(
