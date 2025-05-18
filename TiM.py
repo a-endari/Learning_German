@@ -16,39 +16,36 @@ MIN_WORD_LENGTH = 2
 
 def remove_article(word: str) -> str:
     """
-    Removes German articles (der, die, das) from the word and returns the base word.
-    Also extracts only the part before any hyphen.
+    Removes German articles, cleans up the word by removing special characters,
+    and extracts only the first word if multiple words are present.
 
     Args:
         word (str): German word potentially with article
     Returns:
-        str: Word without article and only before hyphen
+        str: Cleaned word without article and only the first word
     """
-    # List of German articles to remove (case insensitive)
-    articles = ["der ", "die ", "der/die ", "das "]
+    articles = ["der ", "die ", "der/die ", "das ", "etw. ", "jdn./etw. ", "sich "]
 
-    # Handle BOM character and normalize whitespace
-    word = word.strip().replace("\ufeff", "")
+    # Clean and normalize the word
+    word = word.strip().replace("\ufeff", "").rstrip("*")
 
-    # Extract only the part before hyphen if present
-    if " - " in word:
-        word = word.split(" - ", 1)[0]
-    elif " -" in word:
-        word = word.split(" -", 1)[0]
-    elif "- " in word:
-        word = word.split("- ", 1)[0]
-    elif "-" in word:
-        word = word.split("-", 1)[0]
-
-    word_lower = word.lower()
+    # Extract first part before separators
+    separators = [",", " - ", " -", "- ", "-"]
+    for separator in separators:
+        if separator in word:
+            word = word.split(separator, 1)[0].strip()
+            break
 
     # Remove article if present
+    word_lower = word.lower()
     for article in articles:
         if word_lower.startswith(article):
-            base_word = word[len(article) :].strip()
-            return base_word
+            word = word[len(article) :].strip()
+            break
 
-    # If no article found, return the word without any changes
+    # Take only the first word if multiple words exist
+    word = word.split()[0]
+
     return word
 
 
@@ -110,7 +107,9 @@ def process_lines(words: List[str]) -> None:
             elif word.startswith("> ") or word.startswith(
                 "\ufeff> "
             ):  # Handle block quotes
-                output_file.write(f"> [!warning]- Beispiel Satz 👆🏻:\n{word}\n")
+                output_file.write(
+                    f"> [!warning]- Beispiel Satz 👆🏻:\n{word}{GoogleTranslator(source="de", target="fa").translate(text=word)}\n\n"
+                )
                 print(f"Processed : '{word.strip()}', as an example sentence.")
             elif len(word.strip()) > MIN_WORD_LENGTH:  # Process words
                 result = process_word(word)
