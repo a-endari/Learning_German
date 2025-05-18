@@ -1,3 +1,4 @@
 deep-translator==1.11.4
 ffmpeg
 beautifulsoup4
+aiohttp
