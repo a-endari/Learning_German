@@ -24,7 +24,23 @@ def remove_article(word: str) -> str:
     Returns:
         str: Cleaned word without article and only the first word
     """
-    articles = ["der ", "die ", "der/die ", "das ", "etw. ", "jdn./etw. ", "sich "]
+    articles = [
+        "auf ",
+        "das ",
+        "der ",
+        "der/die ",
+        "die ",
+        "ein ",
+        "eine ",
+        "einem ",
+        "einen ",
+        "einer ",
+        "eines ",
+        "etw. ",
+        "jdn. ",
+        "jdm. ",
+        "sich ",
+    ]  # List of German articles
 
     # Clean and normalize the word
     word = word.strip().replace("\ufeff", "").rstrip("*")
@@ -108,7 +124,7 @@ def process_lines(words: List[str]) -> None:
                 "\ufeff> "
             ):  # Handle block quotes
                 output_file.write(
-                    f"> [!warning]- Beispiel Satz 👆🏻:\n{word}{GoogleTranslator(source="de", target="fa").translate(text=word)}\n\n"
+                    f"> [!warning]- 📝 Beispiel Satz:\n{word}{GoogleTranslator(source="de", target="fa").translate(text=word)}\n\n"
                 )
                 print(f"Processed : '{word.strip()}', as an example sentence.")
             elif len(word.strip()) > MIN_WORD_LENGTH:  # Process words
