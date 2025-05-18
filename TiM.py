@@ -17,27 +17,39 @@ MIN_WORD_LENGTH = 2
 def remove_article(word: str) -> str:
     """
     Removes German articles (der, die, das) from the word and returns the base word.
+    Also extracts only the part before any hyphen.
 
     Args:
         word (str): German word potentially with article
     Returns:
-        str: Word without article
+        str: Word without article and only before hyphen
     """
-    # Dictionary of German articles to remove
-    articles = {"der ": "", "die ": "", "der/die ": "", "das ": ""}
+    # List of German articles to remove (case insensitive)
+    articles = ["der ", "die ", "der/die ", "das "]
 
-    word = word.lower()
-    separator = " -"
+    # Handle BOM character and normalize whitespace
+    word = word.strip().replace("\ufeff", "")
+
+    # Extract only the part before hyphen if present
+    if " - " in word:
+        word = word.split(" - ", 1)[0]
+    elif " -" in word:
+        word = word.split(" -", 1)[0]
+    elif "- " in word:
+        word = word.split("- ", 1)[0]
+    elif "-" in word:
+        word = word.split("-", 1)[0]
+
+    word_lower = word.lower()
 
     # Remove article if present
     for article in articles:
-        if word.startswith(article):
-            print(word.removeprefix(article).split(separator, 1)[0])  # Log
-            return word.removeprefix(article).split(separator, 1)[0]
+        if word_lower.startswith(article):
+            base_word = word[len(article) :].strip()
+            return base_word
 
-    # If no article found, return the word with title case
-    print(word.lower().split(separator, 1)[0])  # Log
-    return word.lower().split(separator, 1)[0]
+    # If no article found, return the word without any changes
+    return word
 
 
 def process_word(word: str) -> str:
@@ -49,16 +61,19 @@ def process_word(word: str) -> str:
     Returns:
         str: Formatted markdown text with translations and audio
     """
+    # Clean the word and remove any BOM characters
+    word = word.strip().replace("\ufeff", "")
 
-    word = word.strip()  # Remove newlines and whitespace
+    # Try to get the base word (without article)
     base_word = remove_article(word)
 
-    # Get audio file URL and download if available
-    audio_url = get_audio_url(base_word)
+    # For audio search, try with just the base word (no spaces)
+    search_word = base_word.lower().replace(" ", "")
+
+    audio_url = get_audio_url(search_word)
+
     if audio_url:
         download_audio(audio_url, filename=base_word)
-    else:
-        print(f"Audio file for {base_word} not found!")
 
     # Get translations
     translations = {
@@ -72,9 +87,11 @@ def process_word(word: str) -> str:
     # Format output
     output = f"> [!tldr]- {word}\n"
     if audio_url:
-        output += f"> ![[{base_word}.wav]]\n"
-    output += f"> {translations['en']}\n> {translations['fa']}\n{persian_def}\n"
-
+        output += f"> ![[{base_word}.wav]]\n> {translations['en']}\n> {translations['fa']}\n{persian_def}\n"
+        print(f"Processed: '{word.strip()}'")
+    else:
+        output += f"> {translations['en']}\n> {translations['fa']}\n{persian_def}\n"
+        print(f"Processed: '{word.strip()}', No audio file were found!")
     return output
 
 
@@ -89,11 +106,13 @@ def process_lines(words: List[str]) -> None:
         for word in words:
             if word.startswith(("#", "\ufeff#")):  # Handle headers
                 output_file.write(f"{word}\n")
+                print(f"Processed : '{word.strip()}', as a header.")
             elif word.startswith("> ") or word.startswith(
                 "\ufeff> "
             ):  # Handle block quotes
                 output_file.write(f"> [!warning]- Beispiel Satz 👆🏻:\n{word}\n")
-            elif len(word.strip()) >= MIN_WORD_LENGTH:  # Process words
+                print(f"Processed : '{word.strip()}', as an example sentence.")
+            elif len(word.strip()) > MIN_WORD_LENGTH:  # Process words
                 result = process_word(word)
                 output_file.write(result)
 
