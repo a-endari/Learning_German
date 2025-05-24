@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 deep-translator = "==1.11.4"
+requests = "*"
+beautifulsoup4 = "*"
+genanki = "*"
 
 [dev-packages]
 
