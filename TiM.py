@@ -26,6 +26,7 @@ def remove_article(word: str) -> str:
     """
     articles = [
         "auf ",
+        "an ",
         "das ",
         "der ",
         "der/die ",
@@ -40,6 +41,24 @@ def remove_article(word: str) -> str:
         "jdn. ",
         "jdm. ",
         "sich ",
+        "= der",
+        "= die",
+        "= das",
+        "= ",
+        "→ ",
+        "→ der ",
+        "→ die ",
+        "→ das ",
+        "→ ein ",
+        "→ eine ",
+        "→ einem ",
+        "→ einen ",
+        "→ einer ",
+        "→ eines ",
+        "→ etw. ",
+        "→ jdn. ",
+        "→ jdm. ",
+        "→ sich ",
     ]  # List of German articles
 
     # Clean and normalize the word
