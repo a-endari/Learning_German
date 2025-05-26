@@ -5,7 +5,8 @@
 ![GitHub stars](https://img.shields.io/github/stars/a-endari/Learning_German?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/a-endari/Learning_German?style=social)
 ![GitHub issues](https://img.shields.io/github/issues/a-endari/Learning_German)
-![License](https://img.shields.io/github/license/a-endari/Learning_German)
+![GitHub License](https://img.shields.io/github/license/a-endari/Learning_German)
+
 </div>
 
 A comprehensive toolkit for learning German that combines automated translation, audio pronunciation, and flashcard generation. This project streamlines the process of creating study materials by extracting definitions, examples, and audio from online sources and formatting them into structured markdown notes and Anki flashcards.
