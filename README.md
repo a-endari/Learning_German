@@ -2,11 +2,10 @@
 
 <div align="center">
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/learning-german-tools?style=social)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/learning-german-tools?style=social)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/learning-german-tools)
-![License](https://img.shields.io/github/license/yourusername/learning-german-tools)
-
+![GitHub stars](https://img.shields.io/github/stars/a-endari/Learning_German?style=social)
+![GitHub forks](https://img.shields.io/github/forks/a-endari/Learning_German?style=social)
+![GitHub issues](<<https://img.shields.io/github/issues/a-endari/Learning_German>)
+![License](<<https://img.shields.io/github/license/a-endari/Learning_German>)
 </div>
 
 A comprehensive toolkit for learning German that combines automated translation, audio pronunciation, and flashcard generation. This project streamlines the process of creating study materials by extracting definitions, examples, and audio from online sources and formatting them into structured markdown notes and Anki flashcards.
@@ -36,12 +35,14 @@ A comprehensive toolkit for learning German that combines automated translation,
 ## 🚀 Installation
 
 1. Clone this repository:
+
    ```bash
    git clone https://github.com/yourusername/learning-german-tools.git
    cd learning-german-tools
    ```
 
 2. Install required dependencies:
+
    ```bash
    pip install genanki deep-translator requests beautifulsoup4
    ```
@@ -51,6 +52,7 @@ A comprehensive toolkit for learning German that combines automated translation,
 ### TiM.py (Translate into Markdown)
 
 TiM (Translate into Markdown) is a Python script that helps language learners create a personal German dictionary with:
+
 - English and Persian translations
 - Audio pronunciation files
 - Persian definitions
@@ -77,6 +79,7 @@ das Haus
 ##### Special Formatting Options
 
 1. **Headers**: Lines starting with `#` are treated as headers and passed through unchanged:
+
    ```
    # Animals
    der Hund
@@ -84,11 +87,13 @@ das Haus
    ```
 
 2. **Example Sentences**: Lines starting with `>` are treated as example sentences:
+
    ```
    > Ich habe einen Hund.
    ```
 
 3. **Words with Articles**: Articles are automatically removed for audio lookup but preserved in the output:
+
    ```
    der Tisch  (processed as "Tisch" for audio, but displayed as "der Tisch")
    die Katze
@@ -96,13 +101,16 @@ das Haus
    ```
 
 4. **Words with Additional Information**: You can include additional information after commas or hyphens:
+
    ```
    der Tisch, table
    die Katze - cat
    ```
+
    The script will only process the part before the comma/hyphen.
 
 5. **Words with Asterisks**: Asterisks at the end of words are removed:
+
    ```
    der Tisch*
    ```
@@ -112,6 +120,7 @@ das Haus
 The script generates a `text.md` file with:
 
 1. **Word entries** formatted as collapsible callouts with translations:
+
    ```
    > [!tldr]- der Tisch
    > ![[Tisch.wav]]
@@ -121,6 +130,7 @@ The script generates a `text.md` file with:
    ```
 
 2. **Example sentences** formatted as warning callouts:
+
    ```
    > [!warning]- 📝 Beispiel Satz:
    > Das ist ein Tisch.
@@ -128,6 +138,7 @@ The script generates a `text.md` file with:
    ```
 
 3. **Headers** preserved as is:
+
    ```
    # Furniture
    ```
@@ -140,14 +151,17 @@ This script converts Obsidian callouts from markdown files to Anki flashcards wi
 python to_anki.py <obsidian_file.md> [deck_name]
 ```
 
-#### Parameters:
+#### Parameters
+
 - `<obsidian_file.md>`: Path to the markdown file containing callouts
 - `[deck_name]`: (Optional) Name for the Anki deck. If not provided, the filename without extension will be used
 
-#### Callout Format:
+#### Callout Format
 
 The script recognizes two types of callouts:
+
 1. Word callouts (converted to cards):
+
    ```
    > [!tldr]- German Word
    > ![[audio.wav]]
@@ -157,20 +171,22 @@ The script recognizes two types of callouts:
    ```
 
 2. Example sentence callouts (added to previous card):
+
    ```
    > [!warning]- 📝 Beispiel Satz:
    > German example sentence
    > Persian translation
    ```
 
-#### Output:
+#### Output
 
 The script generates an `.apkg` file that can be imported directly into Anki. The cards include:
+
 - Front: German word
 - Back: Translations, definitions, and example sentences
 - Styling: Beautiful formatting with color-coded sections
 
-#### Example:
+#### Example
 
 ```bash
 python to_anki.py "2.4 Sport.md" "German Sports Vocabulary"
