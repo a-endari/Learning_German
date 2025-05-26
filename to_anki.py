@@ -32,8 +32,8 @@ def extract_callouts(markdown_text):
             r"!\[\[.*?\.(wav|mp3|ogg)\]\]", "", clean_content
         ).strip()
 
-        # Check if this is an example sentence
-        if "📝 Beispiel Satz:" in title:
+        # Check if this is an example sentence - more flexible matching
+        if "beispiel" in title.lower() or "📝" in title:
             # If we have a previous card, add this example to it
             if last_card and clean_content:
                 example_content = f"""
@@ -52,6 +52,9 @@ def extract_callouts(markdown_text):
                             + example_content
                             + last_card["back"][last_div_pos:]
                         )
+                    else:
+                        # If we can't find the closing div, just append to the end
+                        last_card["back"] += example_content
             continue
 
         # Skip empty titles or contents
@@ -246,5 +249,4 @@ def main():
 
 
 if __name__ == "__main__":
-
     main()
