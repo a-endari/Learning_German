@@ -1,8 +1,8 @@
 """TiM: Translate into Markdown: Translates German words to English and Persian, downloads audio, and formats output in markdown."""
 
 from deep_translator import GoogleTranslator
-from audio_grabber_b_amooz import download_audio, get_audio_url
-from persian_def import definition_grabber
+from de_pronunciation_retriever import download_audio, get_audio_url
+from fa_definition_retriever import definition_grabber
 from typing import List
 
 # Constants
