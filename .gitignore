@@ -2,7 +2,7 @@
 .venv
 .venv/
 base.md
-text.md
+results.md
 .DS_Store
 
 # Byte-compiled / optimized / DLL files

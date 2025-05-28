@@ -1,9 +1,11 @@
 """Configuration settings for the Learning German tools."""
 
 # File paths
-INPUT_FILE = "data_files/input/base.md"
-OUTPUT_FILE = "data_files/output/text.md"
+INPUT_FILE = "data_files/input/input.md"
+OUTPUT_FILE = "data_files/output/output.md"
 MEDIA_FOLDER = "media"
+OUTPUT_DIR = "data_files/output"
+
 
 # File operations
 READ_MODE = "r"
