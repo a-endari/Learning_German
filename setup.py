@@ -13,12 +13,12 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "german-notes=learning_german.markdown_note_generator:main",
-            "german-anki=learning_german.anki_deck_generator:main",
+            "german-translate=learning_german.markdown_note_generator:main",
+            "german-to-anki=learning_german.anki_deck_generator:main",
         ],
     },
     python_requires=">=3.6",
-    author="Your Name",
+    author="Abbas Endari",
     description="Tools for learning German with automated translation and flashcard generation",
     keywords="german, language-learning, anki, translation",
 )

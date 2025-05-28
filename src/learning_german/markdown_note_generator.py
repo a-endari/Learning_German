@@ -1,88 +1,23 @@
-"""TiM: Translate into Markdown: Translates German words to English and Persian, downloads audio, and formats output in markdown."""
+"""Markdown Note Generator: Translates German words to English and Persian, downloads audio, and formats output in markdown."""
 
-from deep_translator import GoogleTranslator
-from de_pronunciation_retriever import download_audio, get_audio_url
-from fa_definition_retriever import definition_grabber
 from typing import List
 
-# Constants
-INPUT_FILE = "base.md"
-OUTPUT_FILE = "text.md"
-READ_MODE = "r"
-APPEND_MODE = "a"
-ENCODING = "utf-8"
-MIN_WORD_LENGTH = 2
+from deep_translator import GoogleTranslator
 
-
-def remove_article(word: str) -> str:
-    """
-    Removes German articles, cleans up the word by removing special characters,
-    and extracts only the first word if multiple words are present.
-
-    Args:
-        word (str): German word potentially with article
-    Returns:
-        str: Cleaned word without article and only the first word
-    """
-    articles = [
-        "jdn. / etw. ",
-        "der/die ",
-        "→ einem ",
-        "→ einen ",
-        "→ einer ",
-        "→ eines ",
-        "→ eine ",
-        "→ etw. ",
-        "→ jdn. ",
-        "→ jdm. ",
-        "→ sich ",
-        "einem ",
-        "einen ",
-        "einer ",
-        "eines ",
-        "→ der ",
-        "→ die ",
-        "→ das ",
-        "→ ein ",
-        "= der",
-        "= die",
-        "= das",
-        "eine ",
-        "etw. ",
-        "jdn. ",
-        "jdm. ",
-        "sich ",
-        "auf ",
-        "das ",
-        "der ",
-        "die ",
-        "ein ",
-        "an ",
-        "= ",
-        "→ ",
-    ]  # List of German articles
-
-    # Clean and normalize the word
-    word = word.strip().replace("\ufeff", "").rstrip("*")
-
-    # Extract first part before separators
-    separators = [",", " - ", " -", "- ", "-"]
-    for separator in separators:
-        if separator in word:
-            word = word.split(separator, 1)[0].strip()
-            break
-
-    # Remove article if present
-    word_lower = word.lower()
-    for article in articles:
-        if word_lower.startswith(article):
-            word = word[len(article) :].strip()
-            break
-
-    # Take only the first word if multiple words exist
-    word = word.split()[0]
-
-    return word
+from learning_german.config.settings import (
+    APPEND_MODE,
+    ENCODING,
+    INPUT_FILE,
+    MIN_WORD_LENGTH,
+    OUTPUT_FILE,
+    READ_MODE,
+)
+from learning_german.utils.fa_definition_retriever import definition_grabber
+from learning_german.utils.de_pronunciation_retriever import (
+    download_audio,
+    get_audio_url,
+)
+from learning_german.utils.text_processing import remove_article
 
 
 def process_word(word: str) -> str:
