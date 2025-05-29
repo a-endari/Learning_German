@@ -203,7 +203,7 @@ The generated Anki cards include:
 4. Open the note in Obsidian to see the formatted dictionary with playable audio
 
 ![Obsidian Preview](docs/images/obsidian_preview.png)
-*Example of German vocabulary notes in Obsidian with collapsible sections and audio playback*
+*Example of German vocabulary notes in Obsidian with collapsible sections and audio playback* Theme: catppuccin (Dark Mode)
 
 ### Obsidian Integration Benefits
 
