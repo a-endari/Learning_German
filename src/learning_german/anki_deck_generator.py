@@ -37,10 +37,13 @@ def extract_callouts(markdown_text):
         if "beispiel" in title.lower() or "📝" in title:
             # If we have a previous card, add this example to it
             if last_card and clean_content:
+                # Replace newlines with <br> tags for proper HTML line breaks in examples
+                formatted_example = clean_content.replace("\n", "<br>\n")
+                
                 example_content = f"""
                 <div class="example">
                     <h3>📝 Example</h3>
-                    <div class="example-content">{clean_content}</div>
+                    <div class="example-content">{formatted_example}</div>
                 </div>
                 """
                 # Only add the example if it doesn't already exist in the card
@@ -63,12 +66,15 @@ def extract_callouts(markdown_text):
             continue
 
         # Create a card with title as front and content as back
+        # Replace newlines with <br> tags for proper HTML line breaks
+        formatted_content = clean_content.replace("\n", "<br>\n")
+        
         card = {
             "type": callout_type,
             "front": title.strip(),
             "back": f"""
             <div class="card-content">
-                <div class="translations" style="color: #333333;">{clean_content}</div>
+                <div class="translations" style="color: #333333;">{formatted_content}</div>
             </div>
             """,
         }

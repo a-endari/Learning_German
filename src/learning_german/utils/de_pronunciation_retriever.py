@@ -1,6 +1,24 @@
 import os
 import requests
 from bs4 import BeautifulSoup
+from learning_german.config.settings import AUDIO_SEARCH_PATHS, MEDIA_FOLDER
+
+
+def check_audio_exists(filename):
+    """
+    Check if audio file already exists in any of the search paths.
+    
+    Args:
+        filename (str): Base filename without extension
+        
+    Returns:
+        str or None: Path to existing audio file if found, None otherwise
+    """
+    for folder in AUDIO_SEARCH_PATHS:
+        file_path = os.path.join(folder, f"{filename}.wav")
+        if os.path.exists(file_path):
+            return file_path
+    return None
 
 
 def get_audio_url(german_word):
@@ -41,6 +59,12 @@ def get_audio_url(german_word):
 
 # Function to download audio file
 def download_audio(url, filename):
+    # First check if the audio file already exists
+    existing_file = check_audio_exists(filename)
+    if existing_file:
+        print(f"Audio file for '{filename}' already exists at {existing_file}")
+        return existing_file
+        
     # Define headers for the HTTP request to mimic a web browser
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.78 Safari/537.36",
@@ -51,7 +75,7 @@ def download_audio(url, filename):
 
     # Check if the response status code is 200 (successful)
     if response.status_code == 200:
-        folder_path = "Media"
+        folder_path = MEDIA_FOLDER
 
         # Check to see if folder_path exists. If it doesn't, create it.
         if not os.path.exists(folder_path):
@@ -63,5 +87,8 @@ def download_audio(url, filename):
         # Write the contents of the response (in this case a .wav audio file) into file_path
         with open(file_path_wav, "wb") as f:
             f.write(response.content)
+        
+        return file_path_wav
     else:
         print(f"Failed to download {filename}. Status code: {response.status_code}")
+        return None
