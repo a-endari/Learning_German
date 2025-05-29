@@ -167,3 +167,4 @@ venv.bak/
 .DS_Store
 Thumbs.db
 desktop.ini
+.venv_pc/
