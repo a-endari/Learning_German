@@ -1,10 +1,21 @@
+# Project specific
 *.pdf
 *.apkg
-.venv
-.venv/
-input.md
-output.md
-.DS_Store
+*.wav
+*.mp3
+*.ogg
+Media/
+.venv_mac/
+
+
+# Input/output files
+data_files/input/input.md
+data_files/input/*
+!data_files/input/.gitkeep
+data_files/output/output.md
+data_files/output/*
+!data_files/output/.gitkeep
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -138,51 +149,21 @@ ENV/
 env.bak/
 venv.bak/
 
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# pytype static type analyzer
-.pytype/
-
-# Cython debug symbols
-cython_debug/
-
+# IDE specific files
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+.idea/
+.vscode/
 
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
 
 # Local History for Visual Studio Code
 .history/
-
-# Built Visual Studio Code Extensions
 *.vsix
-Media/
-base.md
-text.md
+
+# OS specific files
+.DS_Store
+Thumbs.db
 desktop.ini
-.vscode
