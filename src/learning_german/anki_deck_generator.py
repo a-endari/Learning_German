@@ -20,7 +20,9 @@ def extract_callouts(markdown_text):
     callouts = re.findall(callout_pattern, markdown_text, re.DOTALL)
 
     cards = []
+    reverse_cards = []
     last_card = None
+    last_reverse_card = None
 
     for callout_type, title, content in callouts:
         # Clean up the content (remove leading > and extra whitespace)
@@ -59,16 +61,28 @@ def extract_callouts(markdown_text):
                     else:
                         # If we can't find the closing div, just append to the end
                         last_card["back"] += example_content
+                
+                # Also add the example to the reverse card if it exists
+                if last_reverse_card and example_content not in last_reverse_card["back"]:
+                    last_div_pos = last_reverse_card["back"].rfind("</div>")
+                    if last_div_pos != -1:
+                        last_reverse_card["back"] = (
+                            last_reverse_card["back"][:last_div_pos]
+                            + example_content
+                            + last_reverse_card["back"][last_div_pos:]
+                        )
+                    else:
+                        last_reverse_card["back"] += example_content
             continue
 
         # Skip empty titles or contents
         if not title.strip() or not clean_content.strip():
             continue
 
-        # Create a card with title as front and content as back
         # Replace newlines with <br> tags for proper HTML line breaks
         formatted_content = clean_content.replace("\n", "<br>\n")
         
+        # Create a card with title as front and content as back
         card = {
             "type": callout_type,
             "front": title.strip(),
@@ -81,8 +95,30 @@ def extract_callouts(markdown_text):
 
         cards.append(card)
         last_card = card
+        
+        # Create a reverse card with Persian as front and German as back
+        # Extract the first Persian line (second line of content)
+        content_lines = clean_content.split("\n")
+        if len(content_lines) >= 2:  # Make sure we have at least 2 lines
+            persian_text = content_lines[1].strip()
+            
+            # Create reverse card
+            reverse_card = {
+                "type": "reverse",
+                "front": persian_text,
+                "back": f"""
+                <div class="card-content">
+                    <div class="translations" style="color: #333333;">{title.strip()}</div>
+                </div>
+                """,
+            }
+            
+            reverse_cards.append(reverse_card)
+            last_reverse_card = reverse_card
 
-    return cards
+    # Combine regular and reverse cards
+    all_cards = cards + reverse_cards
+    return all_cards
 
 
 def create_anki_deck(cards, deck_name):
@@ -94,7 +130,7 @@ def create_anki_deck(cards, deck_name):
     # Create a styled model for the cards
     model = genanki.Model(
         model_id,
-        "Obsidian Callout Model",
+        "Abbas Endari Language Learning Model",
         fields=[
             {"name": "Front"},
             {"name": "Back"},
@@ -118,7 +154,7 @@ def create_anki_deck(cards, deck_name):
                 """,
             },
         ],
-        css= CARD_STYLES,
+        css=CARD_STYLES,
     )
 
     # Create a new deck
@@ -157,7 +193,7 @@ def main():
             print(f"No callouts found in {obsidian_file}")
             sys.exit(1)
 
-        print(f"Found {len(cards)} cards to create")
+        print(f"Found {len(cards)} cards to create (including reverse cards)")
 
         # Create Anki deck
         deck = create_anki_deck(cards, deck_name)
