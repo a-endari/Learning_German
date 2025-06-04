@@ -184,13 +184,20 @@ This will create an `.apkg` file in the `data_files/output/` directory that you 
 #### Anki Card Format
 
 The generated Anki cards include:
+
 - **Front**: German word with article
-- **Back**: 
+- **Back**:
   - English translation
   - Persian translation
   - Persian definitions and examples
   - Synonyms and antonyms (if available)
   - Example sentences (if provided)
+
+**Reverse Cards**: The system automatically creates reverse cards where:
+
+- **Front**: Persian translation
+- **Back**: German word
+- Any example sentences are included on both card types
 
 ![Anki Card Preview](docs/images/anki_card_preview.png)
 *Example of generated Anki flashcard with translations and example sentences*
