@@ -14,7 +14,7 @@ CARD_STYLES = """
 }
 
 .front-side {
-    background-color: #ffffff;
+    background: #ffffff;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -31,7 +31,7 @@ CARD_STYLES = """
 
 .back-side {
     text-align: left;
-    background-color: #ffffff;
+    background: #ffffff;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -43,7 +43,7 @@ CARD_STYLES = """
     line-height: 1.6;
     margin-bottom: 20px;
     padding: 15px;
-    background-color: #f0f8ff;
+    background: #f0f8ff;
     border-radius: 8px;
     border-left: 5px solid #42a5f5;
     color: #333333;
@@ -98,7 +98,7 @@ html.night-mode, body.night-mode, #qa.night-mode, .night-mode * {
 }
 
 .night-mode .front-side {
-    background-color: #2d3748 !important;
+    background: #2d3748 !important;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -111,12 +111,12 @@ html.night-mode, body.night-mode, #qa.night-mode, .night-mode * {
     font-weight: bold;
     margin-bottom: 10px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    background-color: transparent !important;
+    background: transparent !important;
 }
 
 .night-mode .back-side {
     text-align: left;
-    background-color: #2d3748 !important;
+    background: #2d3748 !important;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -128,7 +128,7 @@ html.night-mode, body.night-mode, #qa.night-mode, .night-mode * {
     line-height: 1.6;
     margin-bottom: 20px;
     padding: 15px;
-    background-color: #3a506b !important;
+    background: #3a506b !important;
     border-radius: 8px;
     border-left: 5px solid #4299e1 !important;
     color: #ffffff !important;
@@ -136,7 +136,7 @@ html.night-mode, body.night-mode, #qa.night-mode, .night-mode * {
 
 .night-mode .translations * {
     color: #ffffff !important;
-    background-color: transparent !important;
+    background: transparent !important;
 }
 
 .night-mode .example {
@@ -153,40 +153,43 @@ html.night-mode, body.night-mode, #qa.night-mode, .night-mode * {
     color: #90cdf4 !important;
     font-size: 20px;
     font-weight: 600;
-    background-color: transparent !important;
+    background: transparent !important;
 }
 
 .night-mode .example-content {
     font-size: 16px;
     line-height: 1.5;
     color: #ffffff !important;
-    background-color: transparent !important;
+    background: transparent !important;
 }
 
 .night-mode hr {
     height: 2px;
-    background-color: #4299e1 !important;
+    background: #4299e1 !important;
     border: none;
     margin: 20px 0;
     border-radius: 2px;
 }
 
+/* Fix for the answer area */
 .night-mode #answer {
-    background-color: transparent !important;
+    background: yellow !important;
+    background-color: yellow !important;
 }
 
 .night-mode #answer * {
-    background-color: transparent !important;
+    background: red !important;
+    background-color: red!important;
 }
 
 .night-mode .card-content {
-    background-color: transparent !important;
+    background: transparent !important;
     color: #ffffff !important;
 }
 
 .night-mode .card-content * {
     color: #ffffff !important;
-    background-color: #3a506b !important;
+    background: #3a506b !important;
 }
 """
 
@@ -238,9 +241,16 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     // Specifically target the answer element and its children
     var answerEl = document.getElementById('answer');
     if (answerEl) {
-        answerEl.style.backgroundColor = 'transparent';
+        answerEl.style.backgroundColor = '#1a202c';
+        
+        // Also set the parent element's background
+        if (answerEl.parentElement) {
+            answerEl.parentElement.style.backgroundColor = '#1a202c';
+        }
+        
+        // And all children
         Array.from(answerEl.children).forEach(function(child) {
-            child.style.backgroundColor = 'transparent';
+            child.style.backgroundColor = '#1a202c';
         });
     }
 }
