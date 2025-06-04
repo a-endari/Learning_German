@@ -199,7 +199,7 @@ The generated Anki cards include:
 - **Back**: German word
 - Any example sentences are included on both card types
 
-![Anki Card Preview](docs/images/anki_card_preview.png)
+![Anki Card Preview](docs/images/anki_card_preview.jpg)
 *Example of generated Anki flashcard with translations and example sentences*
 
 ## 📱 Using with Obsidian
