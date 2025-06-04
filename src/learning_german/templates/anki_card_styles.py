@@ -46,12 +46,14 @@ CARD_STYLES = """
     background: #f0f8ff;
     border-radius: 8px;
     border-left: 5px solid #42a5f5;
+    border-right: 5px solid #42a5f5;
     color: #333333;
 }
 
 .example {
     background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
     border-left: 5px solid #29b6f6;
+    border-right: 5px solid #29b6f6;
     padding: 15px;
     margin-top: 20px;
     border-radius: 10px;
@@ -80,15 +82,20 @@ hr {
 }
 
 /* Dark mode styles */
-html.night-mode, body.night-mode, #qa.night-mode, .night-mode * {
+html.night-mode, body.night-mode, #qa.night-mode {
     background-color: #121826 !important;
+    color: #ffffff !important;
+}
+
+/* Apply dark text to all elements but let backgrounds be set individually */
+.night-mode * {
     color: #ffffff !important;
 }
 
 .night-mode .card {
     font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     text-align: center;
-    background: #1a202c !important;
+    background: #121826 !important;
     padding: 25px;
     max-width: 600px;
     margin: 0 auto;
@@ -131,6 +138,7 @@ html.night-mode, body.night-mode, #qa.night-mode, .night-mode * {
     background: #3a506b !important;
     border-radius: 8px;
     border-left: 5px solid #4299e1 !important;
+    border-right: 5px solid #4299e1 !important;
     color: #ffffff !important;
 }
 
@@ -142,6 +150,7 @@ html.night-mode, body.night-mode, #qa.night-mode, .night-mode * {
 .night-mode .example {
     background: #3a506b !important; /* Solid color instead of gradient */
     border-left: 5px solid #4299e1 !important;
+    border-right: 5px solid #4299e1 !important;
     padding: 15px;
     margin-top: 20px;
     border-radius: 10px;
@@ -171,15 +180,14 @@ html.night-mode, body.night-mode, #qa.night-mode, .night-mode * {
     border-radius: 2px;
 }
 
-/* Fix for the answer area */
 .night-mode #answer {
-    background: yellow !important;
-    background-color: yellow !important;
+    background: teal !important;
+    background-color: teal !important;
 }
 
 .night-mode #answer * {
-    background: red !important;
-    background-color: red!important;
+    background: #121826 !important;
+    background-color: #121826 !important;
 }
 
 .night-mode .card-content {
@@ -207,7 +215,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
         
         // Card container
         if (el.classList.contains('card')) {
-            el.style.backgroundColor = '#1a202c';
+            el.style.backgroundColor = '#121826';
         }
         
         // Card sides
@@ -241,16 +249,16 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     // Specifically target the answer element and its children
     var answerEl = document.getElementById('answer');
     if (answerEl) {
-        answerEl.style.backgroundColor = '#1a202c';
+        answerEl.style.backgroundColor = '#121826';
         
         // Also set the parent element's background
         if (answerEl.parentElement) {
-            answerEl.parentElement.style.backgroundColor = '#1a202c';
+            answerEl.parentElement.style.backgroundColor = '#121826';
         }
         
         // And all children
         Array.from(answerEl.children).forEach(function(child) {
-            child.style.backgroundColor = '#1a202c';
+            child.style.backgroundColor = '#121826';
         });
     }
 }
