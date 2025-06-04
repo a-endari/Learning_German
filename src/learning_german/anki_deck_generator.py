@@ -41,7 +41,7 @@ def extract_callouts(markdown_text):
             if last_card and clean_content:
                 # Replace newlines with <br> tags for proper HTML line breaks in examples
                 formatted_example = clean_content.replace("\n", "<br>\n")
-                
+
                 example_content = f"""
                 <div class="example">
                     <h3>📝 Example</h3>
@@ -61,9 +61,12 @@ def extract_callouts(markdown_text):
                     else:
                         # If we can't find the closing div, just append to the end
                         last_card["back"] += example_content
-                
+
                 # Also add the example to the reverse card if it exists
-                if last_reverse_card and example_content not in last_reverse_card["back"]:
+                if (
+                    last_reverse_card
+                    and example_content not in last_reverse_card["back"]
+                ):
                     last_div_pos = last_reverse_card["back"].rfind("</div>")
                     if last_div_pos != -1:
                         last_reverse_card["back"] = (
@@ -81,38 +84,38 @@ def extract_callouts(markdown_text):
 
         # Replace newlines with <br> tags for proper HTML line breaks
         formatted_content = clean_content.replace("\n", "<br>\n")
-        
+
         # Create a card with title as front and content as back
         card = {
             "type": callout_type,
             "front": title.strip(),
             "back": f"""
             <div class="card-content">
-                <div class="translations" style="color: #333333;">{formatted_content}</div>
+                <div class="translations">{formatted_content}</div>
             </div>
             """,
         }
 
         cards.append(card)
         last_card = card
-        
+
         # Create a reverse card with Persian as front and German as back
         # Extract the first Persian line (second line of content)
         content_lines = clean_content.split("\n")
         if len(content_lines) >= 2:  # Make sure we have at least 2 lines
             persian_text = content_lines[1].strip()
-            
+
             # Create reverse card
             reverse_card = {
                 "type": "reverse",
                 "front": persian_text,
                 "back": f"""
                 <div class="card-content">
-                    <div class="translations" style="color: #333333;">{title.strip()}</div>
+                    <div class="translations">{title.strip()}</div>
                 </div>
                 """,
             }
-            
+
             reverse_cards.append(reverse_card)
             last_reverse_card = reverse_card
 
@@ -170,7 +173,9 @@ def create_anki_deck(cards, deck_name):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python to_anki.py <obsidian_file1.md> [obsidian_file2.md ...] [--deck-name DECK_NAME]")
+        print(
+            "Usage: python to_anki.py <obsidian_file1.md> [obsidian_file2.md ...] [--deck-name DECK_NAME]"
+        )
         sys.exit(1)
 
     # Check if --deck-name flag is provided
@@ -193,8 +198,12 @@ def main():
     for obsidian_file in files:
         try:
             # Use the filename without extension as the deck name if not provided
-            current_deck_name = deck_name if deck_name else os.path.splitext(os.path.basename(obsidian_file))[0]
-            
+            current_deck_name = (
+                deck_name
+                if deck_name
+                else os.path.splitext(os.path.basename(obsidian_file))[0]
+            )
+
             # Read the Obsidian file
             with open(obsidian_file, "r", encoding="utf-8") as f:
                 markdown_text = f.read()
@@ -224,7 +233,7 @@ def main():
             print(f"Error: File {obsidian_file} not found")
         except Exception as e:
             print(f"Error processing {obsidian_file}: {str(e)}")
-            
+
     print("All files processed.")
 
 
