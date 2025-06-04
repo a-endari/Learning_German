@@ -170,49 +170,62 @@ def create_anki_deck(cards, deck_name):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python to_anki.py <obsidian_file.md> [deck_name]")
+        print("Usage: python to_anki.py <obsidian_file1.md> [obsidian_file2.md ...] [--deck-name DECK_NAME]")
         sys.exit(1)
 
-    obsidian_file = sys.argv[1]
+    # Check if --deck-name flag is provided
+    deck_name = None
+    files = []
+    i = 1
+    while i < len(sys.argv):
+        if sys.argv[i] == "--deck-name" and i + 1 < len(sys.argv):
+            deck_name = sys.argv[i + 1]
+            i += 2
+        else:
+            files.append(sys.argv[i])
+            i += 1
 
-    # Use the filename without extension as the deck name if not provided
-    if len(sys.argv) > 2:
-        deck_name = sys.argv[2]
-    else:
-        deck_name = os.path.splitext(os.path.basename(obsidian_file))[0]
-
-    try:
-        # Read the Obsidian file
-        with open(obsidian_file, "r", encoding="utf-8") as f:
-            markdown_text = f.read()
-
-        # Extract callouts
-        cards = extract_callouts(markdown_text)
-
-        if not cards:
-            print(f"No callouts found in {obsidian_file}")
-            sys.exit(1)
-
-        print(f"Found {len(cards)} cards to create (including reverse cards)")
-
-        # Create Anki deck
-        deck = create_anki_deck(cards, deck_name)
-
-        # Save the deck to a .apkg file
-        output_file = f"{deck_name}.apkg"
-        output_path = os.path.join(OUTPUT_DIR, output_file)
-        os.makedirs(OUTPUT_DIR, exist_ok=True)  # Ensure the output directory exists
-        genanki.Package(deck).write_to_file(output_path)
-
-        print(f"Successfully created Anki deck: {output_path}")
-        print(f"Cards created: {len(cards)}")
-
-    except FileNotFoundError:
-        print(f"Error: File {obsidian_file} not found")
+    if not files:
+        print("Error: No input files provided")
         sys.exit(1)
-    except Exception as e:
-        print(f"Error: {str(e)}")
-        sys.exit(1)
+
+    # Process each file
+    for obsidian_file in files:
+        try:
+            # Use the filename without extension as the deck name if not provided
+            current_deck_name = deck_name if deck_name else os.path.splitext(os.path.basename(obsidian_file))[0]
+            
+            # Read the Obsidian file
+            with open(obsidian_file, "r", encoding="utf-8") as f:
+                markdown_text = f.read()
+
+            # Extract callouts
+            cards = extract_callouts(markdown_text)
+
+            if not cards:
+                print(f"No callouts found in {obsidian_file}")
+                continue
+
+            print(f"Found {len(cards)} cards to create from {obsidian_file}")
+
+            # Create Anki deck
+            deck = create_anki_deck(cards, current_deck_name)
+
+            # Save the deck to a .apkg file
+            output_file = f"{current_deck_name}.apkg"
+            output_path = os.path.join(OUTPUT_DIR, output_file)
+            os.makedirs(OUTPUT_DIR, exist_ok=True)  # Ensure the output directory exists
+            genanki.Package(deck).write_to_file(output_path)
+
+            print(f"Successfully created Anki deck: {output_path}")
+            print(f"Cards created: {len(cards)}")
+
+        except FileNotFoundError:
+            print(f"Error: File {obsidian_file} not found")
+        except Exception as e:
+            print(f"Error processing {obsidian_file}: {str(e)}")
+            
+    print("All files processed.")
 
 
 if __name__ == "__main__":
