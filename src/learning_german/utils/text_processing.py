@@ -1,5 +1,6 @@
 """Text processing utilities for German language."""
 
+
 def remove_article(word: str) -> str:
     """
     Removes German articles, cleans up the word by removing special characters,
@@ -11,12 +12,44 @@ def remove_article(word: str) -> str:
         str: Cleaned word without article and only the first word
     """
     articles = [
-        "jdn. / etw. ", "der/die ", "→ einem ", "→ einen ", "→ einer ",
-        "→ eines ", "→ eine ", "→ etw. ", "→ jdn. ", "→ jdm. ", "→ sich ",
-        "einem ", "einen ", "einer ", "eines ", "→ der ", "→ die ", "→ das ",
-        "→ ein ", "= der", "= die", "= das", "eine ", "etw. ", "jdn. ",
-        "jdm. ", "sich ", "auf ", "das ", "der ", "die ", "ein ", "an ",
-        "= ", "→ ",
+        "jdn. / etw. ",
+        "der/die ",
+        "→ einem ",
+        "→ einen ",
+        "→ einer ",
+        "→ eines ",
+        "→ eine ",
+        "→ etw. ",
+        "→ jdn. ",
+        "→ jdm. ",
+        "→ sich ",
+        "einem ",
+        "einen ",
+        "einer ",
+        "eines ",
+        "→ der ",
+        "→ die ",
+        "→ das ",
+        "→ ein ",
+        "= der",
+        "= die",
+        "= das",
+        "eine ",
+        "etw. ",
+        "jdn. ",
+        "jdm. ",
+        "sich ",
+        "auf ",
+        "das ",
+        "der ",
+        "die ",
+        "dem",
+        "den",
+        "des",
+        "ein ",
+        "an ",
+        "= ",
+        "→ ",
     ]
 
     # Clean and normalize the word
@@ -33,7 +66,7 @@ def remove_article(word: str) -> str:
     word_lower = word.lower()
     for article in articles:
         if word_lower.startswith(article):
-            word = word[len(article):].strip()
+            word = word[len(article) :].strip()
             break
 
     # Take only the first word if multiple words exist
