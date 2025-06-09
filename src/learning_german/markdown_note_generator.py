@@ -1,7 +1,9 @@
 """Markdown Note Generator: Translates German words to English and Persian, downloads audio, and formats output in markdown."""
 
+import asyncio
 from typing import List
 
+import aiofiles
 from deep_translator import GoogleTranslator
 
 from learning_german.config.settings import (
@@ -12,17 +14,27 @@ from learning_german.config.settings import (
     OUTPUT_FILE,
     READ_MODE,
 )
-from learning_german.utils.fa_definition_retriever import definition_grabber
+from learning_german.utils.fa_definition_retriever import (
+    definition_grabber,
+    definition_grabber_async,
+)
 from learning_german.utils.de_pronunciation_retriever import (
     download_audio,
     get_audio_url,
+    download_audio_async,
+    get_audio_url_async,
 )
 from learning_german.utils.text_processing import remove_article
 
 
-def process_word(word: str) -> str:
+async def run_in_executor(func, *args):
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(None, func, *args)
+
+
+async def process_word_async(word: str) -> str:
     """
-    Processes a single German word: gets audio, translations, and formats output.
+    Processes a single German word asynchronously: gets audio, translations, and formats output.
 
     Args:
         word (str): German word to process
@@ -38,62 +50,78 @@ def process_word(word: str) -> str:
     # For audio search, try with just the base word (no spaces)
     search_word = base_word.lower().replace(" ", "")
 
-    audio_url = get_audio_url(search_word)
+    # Use the async version directly
+    audio_url = await get_audio_url_async(search_word)
 
     if audio_url:
-        download_audio(audio_url, filename=base_word)
+        await download_audio_async(audio_url, base_word)
 
-    # Get translations
-    translations = {
-        "en": GoogleTranslator(source="de", target="en").translate(text=word),
-        "fa": GoogleTranslator(source="de", target="fa").translate(text=word),
-    }
+    # Get translations asynchronously via executor since deep_translator is sync
+    en_translation = await run_in_executor(
+        GoogleTranslator(source="de", target="en").translate, word
+    )
+    fa_translation = await run_in_executor(
+        GoogleTranslator(source="de", target="fa").translate, word
+    )
 
-    # Get Persian definition
-    persian_def = definition_grabber(base_word)
+    # Get Persian definition using async version
+    persian_def = await definition_grabber_async(base_word)
 
     # Format output
     output = f"> [!tldr]- {word}\n"
     if audio_url:
-        output += f"> ![[{base_word}.wav]]\n> {translations['en']}\n> {translations['fa']}\n{persian_def}\n"
+        output += f"> ![[{base_word}.wav]]\n> {en_translation}\n> {fa_translation}\n{persian_def}\n"
         print(f"Processed: '{word.strip()}'")
     else:
-        output += f"> {translations['en']}\n> {translations['fa']}\n{persian_def}\n"
+        output += f"> {en_translation}\n> {fa_translation}\n{persian_def}\n"
         print(f"Processed: '{word.strip()}', No audio file were found!")
     return output
 
 
-def process_lines(words: List[str]) -> None:
+async def process_lines_async(words: List[str]) -> None:
     """
-    Process and write words to output file.
+    Process and write words to output file asynchronously.
 
     Args:
         words (List[str]): List of words to process
     """
-    with open(OUTPUT_FILE, APPEND_MODE, encoding=ENCODING) as output_file:
+    async with aiofiles.open(
+        OUTPUT_FILE, APPEND_MODE, encoding=ENCODING
+    ) as output_file:
+        # Process words in order
         for word in words:
             if word.startswith(("#", "\ufeff#")):  # Handle headers
-                output_file.write(f"{word}\n")
+                await output_file.write(f"{word}\n")
                 print(f"Processed : '{word.strip()}', as a header.")
             elif word.startswith("> ") or word.startswith(
                 "\ufeff> "
             ):  # Handle block quotes
-                output_file.write(
-                    f"> [!warning]- 📝 Beispiel Satz:\n{word}{GoogleTranslator(source="de", target="fa").translate(text=word)}\n\n"
+                fa_translation = await run_in_executor(
+                    GoogleTranslator(source="de", target="fa").translate, word
+                )
+                await output_file.write(
+                    f"> [!warning]- 📝 Beispiel Satz:\n{word}{fa_translation}\n\n"
                 )
                 print(f"Processed : '{word.strip()}', as an example sentence.")
             elif len(word.strip()) > MIN_WORD_LENGTH:  # Process words
-                result = process_word(word)
-                output_file.write(result)
+                result = await process_word_async(word)
+                await output_file.write(result)
 
 
-def main() -> None:
-    """Main function to process the input file and generate translations."""
+async def main_async() -> None:
+    """Main async function to process the input file and generate translations."""
+    import time
+
+    start_time = time.time()
+
     try:
-        with open(INPUT_FILE, READ_MODE, encoding=ENCODING) as basefile:
-            words = basefile.readlines()
+        async with aiofiles.open(INPUT_FILE, READ_MODE, encoding=ENCODING) as basefile:
+            words = await basefile.readlines()
 
-        process_lines(words)
+        await process_lines_async(words)
+
+        elapsed_time = time.time() - start_time
+        print(f"Processing completed in {elapsed_time:.2f} seconds")
 
     except FileNotFoundError:
         print(f"Error: Input file '{INPUT_FILE}' not found!")
@@ -103,5 +131,16 @@ def main() -> None:
         print(f"An unexpected error occurred: {str(e)}")
 
 
+def main_async_wrapper():
+    """Wrapper for the async main function to use as an entry point."""
+    asyncio.run(main_async())
+
+
+# Keep this for backward compatibility
+def main():
+    """Synchronous wrapper for the async main function."""
+    asyncio.run(main_async())
+
+
 if __name__ == "__main__":
-    main()
+    asyncio.run(main_async())

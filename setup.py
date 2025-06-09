@@ -13,7 +13,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "german-translate=learning_german.markdown_note_generator:main",
+            "german-translate=learning_german.markdown_note_generator:main_async_wrapper",
             "german-to-anki=learning_german.anki_deck_generator:main",
         ],
     },
