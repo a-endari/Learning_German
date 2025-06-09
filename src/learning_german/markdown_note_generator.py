@@ -1,7 +1,8 @@
 """Markdown Note Generator: Translates German words to English and Persian, downloads audio, and formats output in markdown."""
 
 import asyncio
-from typing import List
+import time
+from typing import List, Dict
 
 import aiofiles
 from deep_translator import GoogleTranslator
@@ -25,6 +26,13 @@ from learning_german.utils.de_pronunciation_retriever import (
     get_audio_url_async,
 )
 from learning_german.utils.text_processing import remove_article
+
+# Cache for translations and definitions
+translation_cache: Dict[str, Dict[str, str]] = {
+    'en': {},  # German to English
+    'fa': {},  # German to Persian
+    'def': {}  # German to Persian definition
+}
 
 
 async def run_in_executor(func, *args):
@@ -52,20 +60,24 @@ async def process_word_async(word: str) -> str:
 
     # Use the async version directly
     audio_url = await get_audio_url_async(search_word)
-
     if audio_url:
         await download_audio_async(audio_url, base_word)
 
-    # Get translations asynchronously via executor since deep_translator is sync
-    en_translation = await run_in_executor(
-        GoogleTranslator(source="de", target="en").translate, word
-    )
-    fa_translation = await run_in_executor(
-        GoogleTranslator(source="de", target="fa").translate, word
-    )
+    # Get translations (with caching)
+    if word not in translation_cache['en']:
+        translation_cache['en'][word] = await run_in_executor(
+            GoogleTranslator(source="de", target="en").translate, word)
+    en_translation = translation_cache['en'][word]
+    
+    if word not in translation_cache['fa']:
+        translation_cache['fa'][word] = await run_in_executor(
+            GoogleTranslator(source="de", target="fa").translate, word)
+    fa_translation = translation_cache['fa'][word]
 
-    # Get Persian definition using async version
-    persian_def = await definition_grabber_async(base_word)
+    # Get Persian definition (with caching)
+    if base_word not in translation_cache['def']:
+        translation_cache['def'][base_word] = await definition_grabber_async(base_word)
+    persian_def = translation_cache['def'][base_word]
 
     # Format output
     output = f"> [!tldr]- {word}\n"
@@ -96,9 +108,12 @@ async def process_lines_async(words: List[str]) -> None:
             elif word.startswith("> ") or word.startswith(
                 "\ufeff> "
             ):  # Handle block quotes
-                fa_translation = await run_in_executor(
-                    GoogleTranslator(source="de", target="fa").translate, word
-                )
+                # Cache example sentence translations
+                if word not in translation_cache['fa']:
+                    translation_cache['fa'][word] = await run_in_executor(
+                        GoogleTranslator(source="de", target="fa").translate, word)
+                fa_translation = translation_cache['fa'][word]
+                
                 await output_file.write(
                     f"> [!warning]- 📝 Beispiel Satz:\n{word}{fa_translation}\n\n"
                 )
@@ -110,8 +125,6 @@ async def process_lines_async(words: List[str]) -> None:
 
 async def main_async() -> None:
     """Main async function to process the input file and generate translations."""
-    import time
-
     start_time = time.time()
 
     try:
@@ -122,6 +135,9 @@ async def main_async() -> None:
 
         elapsed_time = time.time() - start_time
         print(f"Processing completed in {elapsed_time:.2f} seconds")
+        print(f"Cache statistics: English translations: {len(translation_cache['en'])}, " 
+              f"Persian translations: {len(translation_cache['fa'])}, "
+              f"Definitions: {len(translation_cache['def'])}")
 
     except FileNotFoundError:
         print(f"Error: Input file '{INPUT_FILE}' not found!")
