@@ -1,4 +1,4 @@
-# Learning German Tools
+# Learning German Tools (from English and Farsi)
 
 <div align="center">
 
@@ -9,6 +9,17 @@
 
 </div>
 
+__🌟 Hey there! Welcome to my language learning helper project! 🌟__
+
+This whole thing started because I wanted a better way to learn German (my current language adventure!). Since I use Obsidian for all my notes and Anki for flashcards, I began crafting these little scripts to bridge the gap.
+
+Over time, they grew and evolved a lot – tweaking, fixing, and improving until they became the handy tools you see today. I realized others might find them useful too, especially fellow Persian speakers diving into German. So, why keep them to myself? Sharing is caring! 😊
+
+**Looking ahead**: Once I hit my own German goals, I’d love to expand this into a multilingual helper, supporting way more languages than just Persian and German. The dream is big!
+
+**For now though?** Below is the project exactly as it is – my little labor of love, ready for you to explore, use, and maybe even improve. Hope it helps you like it helped me!
+
+---
 A comprehensive toolkit for learning German that combines automated translation, audio pronunciation, and flashcard generation. This project streamlines the process of creating study materials by extracting definitions, examples, and audio from online sources and formatting them into structured markdown notes and Anki flashcards.
 
 ## ✨ Features
@@ -88,11 +99,13 @@ das Pferd
 #### Input File Format Guidelines
 
 1. **Headers**: Lines starting with `#` are treated as section headers:
+
    ```
    # Animals
    ```
 
 2. **Words with Articles**: Include the article for nouns (der, die, das):
+
    ```
    der Tisch
    die Katze
@@ -100,18 +113,22 @@ das Pferd
    ```
 
 3. **Example Sentences**: Lines starting with `>` are treated as example sentences:
+
    ```
    > Ich habe einen Hund.
    ```
 
 4. **Words with Additional Information**: You can include additional information after commas or hyphens:
+
    ```
    der Tisch, table
    die Katze - cat
    ```
+
    The script will only process the part before the comma/hyphen.
 
 5. **Words with Asterisks**: Asterisks at the end of words are automatically removed:
+
    ```
    der Tisch*
    ```
@@ -131,6 +148,7 @@ python -m learning_german.markdown_note_generator
 ```
 
 This will:
+
 - Process each word in your input file
 - Translate words to English and Persian
 - Download audio pronunciations
@@ -180,6 +198,7 @@ python -m learning_german.anki_deck_generator data_files/output/output.md --deck
 ```
 
 Parameters:
+
 - First parameter: Path to the markdown file containing callouts
 - `--deck-name` (optional): Name for the Anki deck. If not provided, the filename without extension will be used
 
@@ -215,6 +234,7 @@ python -m learning_german.obsidian_oords_and_examples_extractor path/to/your/obs
 ```
 
 This will:
+
 - Extract example sentences (lines after "Beispiel" and "satz")
 - Extract word entries (lines starting with "> [!tldr]- ")
 - Create a text file with the same name as the input file but with a .txt extension in the output directory
@@ -266,19 +286,19 @@ The project includes comprehensive styling for Anki cards, including dark mode s
 ### Common Issues
 
 1. **No Audio Found**: Some words may not have audio available. The script will notify you and continue processing.
-   
+
    Solution: Try alternative spellings or check if the word exists in the online dictionary.
 
 2. **Translation Errors**: Occasionally, translations may be inaccurate.
-   
+
    Solution: Edit the output markdown file before converting to Anki cards.
 
 3. **File Not Found Errors**: Ensure your input file exists at the specified path.
-   
+
    Solution: Check the path in `settings.py` and make sure the file exists.
 
 4. **Internet Connection Issues**: The tool requires an internet connection for translations and audio.
-   
+
    Solution: Verify your internet connection and try again.
 
 ## 💡 Tips for Effective Learning
@@ -295,6 +315,7 @@ The project includes comprehensive styling for Anki cards, including dark mode s
 **NOT IMPLIMENTED YET!**
 
 The project includes test files for various components:
+
 - `tests/test_retrievers.py`: Tests for pronunciation and definition retrieval
 - `tests/test_markdown_generator.py`: Tests for markdown generation
 - `tests/test_anki_generator.py`: Tests for Anki deck generation
