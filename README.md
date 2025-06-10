@@ -19,6 +19,8 @@ A comprehensive toolkit for learning German that combines automated translation,
 - 📝 Markdown-formatted study notes with proper German capitalization
 - 🎴 Conversion of notes to Anki flashcards with beautiful formatting
 - 📋 Support for example sentences and contextual usage
+- 🌙 Dark mode support for Anki cards
+- 📤 Extract examples from Obsidian notes for focused study
 
 ## 🛠️ Components
 
@@ -34,7 +36,8 @@ learning_german/
 │   ├── fa_definition_retriever.py     # Persian definitions retrieval
 │   └── text_processing.py             # Text processing utilities
 ├── anki_deck_generator.py             # Convert markdown to Anki cards
-└── markdown_note_generator.py         # Generate markdown from German words
+├── markdown_note_generator.py         # Generate markdown from German words
+└── obsidian_oords_and_examples_extractor.py  # Extract examples from Obsidian notes
 ```
 
 ## 📋 Requirements
@@ -45,6 +48,7 @@ learning_german/
   - deep-translator: For translating German words
   - requests: For making HTTP requests
   - beautifulsoup4: For parsing HTML content
+  - aiohttp & aiofiles: For asynchronous operations
 
 ## 🚀 Installation
 
@@ -166,18 +170,18 @@ The generated `output.md` file will contain:
 Convert your markdown notes to Anki flashcards using the installed command-line tool:
 
 ```bash
-german-to-anki data_files/output/output.md "German Vocabulary"
+german-to-anki data_files/output/output.md --deck-name "German Vocabulary"
 ```
 
 Or run the module directly:
 
 ```bash
-python -m learning_german.anki_deck_generator data_files/output/output.md "German Vocabulary"
+python -m learning_german.anki_deck_generator data_files/output/output.md --deck-name "German Vocabulary"
 ```
 
 Parameters:
 - First parameter: Path to the markdown file containing callouts
-- Second parameter (optional): Name for the Anki deck. If not provided, the filename without extension will be used
+- `--deck-name` (optional): Name for the Anki deck. If not provided, the filename without extension will be used
 
 This will create an `.apkg` file in the `data_files/output/` directory that you can import directly into Anki.
 
@@ -201,6 +205,19 @@ The generated Anki cards include:
 
 ![Anki Card Preview](docs/images/anki_card_preview.jpg)
 *Example of generated Anki flashcard with translations and example sentences*
+
+### Step 4: Extract Examples from Obsidian Notes (Optional)
+
+If you have Obsidian notes with German vocabulary and examples, you can extract just the examples for focused study:
+
+```bash
+python -m learning_german.obsidian_oords_and_examples_extractor path/to/your/obsidian_note.md
+```
+
+This will:
+- Extract example sentences (lines after "Beispiel" and "satz")
+- Extract word entries (lines starting with "> [!tldr]- ")
+- Create a text file with the same name as the input file but with a .txt extension in the output directory
 
 ## 📱 Using with Obsidian
 
@@ -230,6 +247,7 @@ You can modify settings in `src/learning_german/config/settings.py`:
 - `MEDIA_FOLDER`: Folder for storing audio files
 - `OUTPUT_DIR`: Directory for Anki deck output
 - `MIN_WORD_LENGTH`: Minimum length for words to be processed
+- `AUDIO_SEARCH_PATHS`: List of paths to search for existing audio files
 
 ### Adding Custom Translations
 
@@ -238,6 +256,10 @@ If you want to add custom translations or definitions:
 1. Process your words normally
 2. Edit the generated `output.md` file to add or modify translations
 3. Convert to Anki cards as usual
+
+### Customizing Anki Card Styles
+
+The project includes comprehensive styling for Anki cards, including dark mode support. You can customize the appearance by modifying the CSS in `src/learning_german/templates/anki_card_styles.py`.
 
 ## 🔍 Troubleshooting
 
@@ -266,6 +288,22 @@ If you want to add custom translations or definitions:
 - **Review Regularly**: Import cards into Anki and review daily
 - **Use Audio**: Listen to pronunciations to improve your accent
 - **Add Your Own Notes**: Customize cards with personal mnemonics
+- **Extract Examples**: Use the example extractor to focus on sentence patterns
+
+## 🧪 Testing
+
+**NOT IMPLIMENTED YET!**
+
+The project includes test files for various components:
+- `tests/test_retrievers.py`: Tests for pronunciation and definition retrieval
+- `tests/test_markdown_generator.py`: Tests for markdown generation
+- `tests/test_anki_generator.py`: Tests for Anki deck generation
+
+Run tests using pytest:
+
+```bash
+pytest
+```
 
 ## 🤝 Contributing
 
@@ -287,3 +325,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - [Deep Translator](https://github.com/nidhaloff/deep-translator) for translation capabilities
 - [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/) for web scraping
 - [Obsidian](https://obsidian.md/) for markdown note-taking capabilities
+- [aiohttp](https://docs.aiohttp.org/) for asynchronous HTTP requests
