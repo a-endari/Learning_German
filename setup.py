@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name="learning_german",
@@ -15,7 +15,7 @@ setup(
         "console_scripts": [
             "german-translate=learning_german.markdown_note_generator:main_async_wrapper",
             "german-to-anki=learning_german.anki_deck_generator:main",
-            "extract-examples=learning_german.obsidian_oords_and_examples_extractor:main",
+            "extract-examples=learning_german.obsidian_words_and_examples_extractor:main",
         ],
     },
     python_requires=">=3.6",
