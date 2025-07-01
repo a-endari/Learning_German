@@ -2,7 +2,7 @@
 
 import asyncio
 import time
-from typing import List, Dict
+from typing import Dict, List
 
 import aiofiles
 from deep_translator import GoogleTranslator
@@ -15,23 +15,20 @@ from learning_german.config.settings import (
     OUTPUT_FILE,
     READ_MODE,
 )
-from learning_german.utils.fa_definition_retriever import (
-    definition_grabber,
-    definition_grabber_async,
-)
-from learning_german.utils.de_pronunciation_retriever import (
-    download_audio,
-    get_audio_url,
+from learning_german.utils.de_pronunciation_retriever import (  # download_audio,; get_audio_url,
     download_audio_async,
     get_audio_url_async,
+)
+from learning_german.utils.fa_definition_retriever import (  # definition_grabber,
+    definition_grabber_async,
 )
 from learning_german.utils.text_processing import remove_article
 
 # Cache for translations and definitions
 translation_cache: Dict[str, Dict[str, str]] = {
-    'en': {},  # German to English
-    'fa': {},  # German to Persian
-    'def': {}  # German to Persian definition
+    "en": {},  # German to English
+    "fa": {},  # German to Persian
+    "def": {},  # German to Persian definition
 }
 
 
@@ -64,20 +61,22 @@ async def process_word_async(word: str) -> str:
         await download_audio_async(audio_url, base_word)
 
     # Get translations (with caching)
-    if word not in translation_cache['en']:
-        translation_cache['en'][word] = await run_in_executor(
-            GoogleTranslator(source="de", target="en").translate, word)
-    en_translation = translation_cache['en'][word]
-    
-    if word not in translation_cache['fa']:
-        translation_cache['fa'][word] = await run_in_executor(
-            GoogleTranslator(source="de", target="fa").translate, word)
-    fa_translation = translation_cache['fa'][word]
+    if word not in translation_cache["en"]:
+        translation_cache["en"][word] = await run_in_executor(
+            GoogleTranslator(source="de", target="en").translate, word
+        )
+    en_translation = translation_cache["en"][word]
+
+    if word not in translation_cache["fa"]:
+        translation_cache["fa"][word] = await run_in_executor(
+            GoogleTranslator(source="de", target="fa").translate, word
+        )
+    fa_translation = translation_cache["fa"][word]
 
     # Get Persian definition (with caching)
-    if base_word not in translation_cache['def']:
-        translation_cache['def'][base_word] = await definition_grabber_async(base_word)
-    persian_def = translation_cache['def'][base_word]
+    if base_word not in translation_cache["def"]:
+        translation_cache["def"][base_word] = await definition_grabber_async(base_word)
+    persian_def = translation_cache["def"][base_word]
 
     # Format output
     output = f"> [!tldr]- {word}\n"
@@ -109,11 +108,12 @@ async def process_lines_async(words: List[str]) -> None:
                 "\ufeff> "
             ):  # Handle block quotes
                 # Cache example sentence translations
-                if word not in translation_cache['fa']:
-                    translation_cache['fa'][word] = await run_in_executor(
-                        GoogleTranslator(source="de", target="fa").translate, word)
-                fa_translation = translation_cache['fa'][word]
-                
+                if word not in translation_cache["fa"]:
+                    translation_cache["fa"][word] = await run_in_executor(
+                        GoogleTranslator(source="de", target="fa").translate, word
+                    )
+                fa_translation = translation_cache["fa"][word]
+
                 await output_file.write(
                     f"> [!warning]- 📝 Beispiel Satz:\n{word}{fa_translation}\n\n"
                 )
@@ -135,9 +135,11 @@ async def main_async() -> None:
 
         elapsed_time = time.time() - start_time
         print(f"Processing completed in {elapsed_time:.2f} seconds")
-        print(f"Cache statistics: English translations: {len(translation_cache['en'])}, " 
-              f"Persian translations: {len(translation_cache['fa'])}, "
-              f"Definitions: {len(translation_cache['def'])}")
+        print(
+            f"Cache statistics: English translations: {len(translation_cache['en'])}, "
+            f"Persian translations: {len(translation_cache['fa'])}, "
+            f"Definitions: {len(translation_cache['def'])}"
+        )
 
     except FileNotFoundError:
         print(f"Error: Input file '{INPUT_FILE}' not found!")

@@ -119,9 +119,16 @@ def extract_callouts(markdown_text):
             reverse_cards.append(reverse_card)
             last_reverse_card = reverse_card
 
-    # Combine regular and reverse cards
-    all_cards = cards + reverse_cards
-    return all_cards
+    # Remove duplicates based on front text
+    seen_fronts = set()
+    unique_cards = []
+    
+    for card in cards + reverse_cards:
+        if card["front"] not in seen_fronts:
+            seen_fronts.add(card["front"])
+            unique_cards.append(card)
+    
+    return unique_cards
 
 
 def create_anki_deck(cards, deck_name):
