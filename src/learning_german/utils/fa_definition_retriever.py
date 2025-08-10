@@ -1,14 +1,10 @@
-import requests
-import aiohttp
 import asyncio
+import aiohttp
+import requests
 from bs4 import BeautifulSoup
 
 
 def definition_grabber(german_word: str) -> str:
-    # Initialize variables
-    persian_definition = ""
-    synonyms_list = ""
-
     url = f"https://dic.b-amooz.com/de/dictionary/w?word={german_word}"
 
     response = requests.get(url)

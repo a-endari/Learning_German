@@ -6,7 +6,8 @@ import os
 import random
 import re
 import sys
-import genanki
+from pathlib import Path
+from genanki import Model, Deck, Note, Package
 from learning_german.config.settings import OUTPUT_DIR
 from learning_german.templates.anki_card_styles import CARD_STYLES
 
@@ -19,8 +20,7 @@ def extract_callouts(markdown_text):
     # Find all callouts
     callouts = re.findall(callout_pattern, markdown_text, re.DOTALL)
 
-    cards = []
-    reverse_cards = []
+    ordered_cards = []
     last_card = None
     last_reverse_card = None
 
@@ -96,14 +96,21 @@ def extract_callouts(markdown_text):
             """,
         }
 
-        cards.append(card)
+        ordered_cards.append(card)
         last_card = card
 
         # Create a reverse card with Persian as front and German as back
-        # Extract the first Persian line (second line of content)
-        content_lines = clean_content.split("\n")
-        if len(content_lines) >= 2:  # Make sure we have at least 2 lines
-            persian_text = content_lines[1].strip()
+        # Extract the Persian line (usually second line, but could be first if no audio)
+        content_lines = [line.strip() for line in clean_content.split("\n") if line.strip()]
+        persian_text = None
+        
+        # Find Persian text (look for non-English text)
+        for line in content_lines:
+            if line and not line.replace(' ', '').isascii():
+                persian_text = line
+                break
+        
+        if persian_text:
 
             # Create reverse card
             reverse_card = {
@@ -116,14 +123,14 @@ def extract_callouts(markdown_text):
                 """,
             }
 
-            reverse_cards.append(reverse_card)
+            ordered_cards.append(reverse_card)
             last_reverse_card = reverse_card
 
     # Remove duplicates based on front text
     seen_fronts = set()
     unique_cards = []
     
-    for card in cards + reverse_cards:
+    for card in ordered_cards:
         if card["front"] not in seen_fronts:
             seen_fronts.add(card["front"])
             unique_cards.append(card)
@@ -138,9 +145,9 @@ def create_anki_deck(cards, deck_name):
     deck_id = random.randrange(1 << 30, 1 << 31)
 
     # Create a styled model for the cards
-    model = genanki.Model(
+    model = Model(
         model_id,
-        "Abbas Endari Language Learning Model",
+        "A.Endari Created Card",
         fields=[
             {"name": "Front"},
             {"name": "Back"},
@@ -168,11 +175,11 @@ def create_anki_deck(cards, deck_name):
     )
 
     # Create a new deck
-    deck = genanki.Deck(deck_id, deck_name)
+    deck = Deck(deck_id, deck_name)
 
-    # Add cards to the deck
-    for card_data in cards:
-        note = genanki.Note(model=model, fields=[card_data["front"], card_data["back"]])
+    # Add cards to the deck with explicit ordering
+    for i, card_data in enumerate(cards):
+        note = Note(model=model, fields=[card_data["front"], card_data["back"]], due=i)
         deck.add_note(note)
 
     return deck
@@ -204,15 +211,21 @@ def main():
     # Process each file
     for obsidian_file in files:
         try:
+            # Validate file path to prevent path traversal
+            file_path = Path(obsidian_file).resolve()
+            if not file_path.exists() or not file_path.is_file():
+                print(f"Error: Invalid file path {obsidian_file}")
+                continue
+                
             # Use the filename without extension as the deck name if not provided
             current_deck_name = (
                 deck_name
                 if deck_name
-                else os.path.splitext(os.path.basename(obsidian_file))[0]
+                else file_path.stem
             )
 
             # Read the Obsidian file
-            with open(obsidian_file, "r", encoding="utf-8") as f:
+            with open(file_path, "r", encoding="utf-8") as f:
                 markdown_text = f.read()
 
             # Extract callouts
@@ -231,7 +244,7 @@ def main():
             output_file = f"{current_deck_name}.apkg"
             output_path = os.path.join(OUTPUT_DIR, output_file)
             os.makedirs(OUTPUT_DIR, exist_ok=True)  # Ensure the output directory exists
-            genanki.Package(deck).write_to_file(output_path)
+            Package(deck).write_to_file(output_path)
 
             print(f"Successfully created Anki deck: {output_path}")
             print(f"Cards created: {len(cards)}")
