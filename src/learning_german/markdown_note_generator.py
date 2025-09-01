@@ -60,17 +60,25 @@ async def process_word_async(word: str) -> str:
     if audio_url:
         await download_audio_async(audio_url, base_word)
 
-    # Get translations (with caching)
+    # Get translations (with caching and error handling)
     if word not in translation_cache["en"]:
-        translation_cache["en"][word] = await run_in_executor(
-            GoogleTranslator(source="de", target="en").translate, word
-        )
+        try:
+            translation_cache["en"][word] = await run_in_executor(
+                GoogleTranslator(source="de", target="en").translate, word
+            )
+        except Exception as e:
+            print(f"Translation error for '{word}' (EN): {e}")
+            translation_cache["en"][word] = f"[Translation failed: {word}]"
     en_translation = translation_cache["en"][word]
 
     if word not in translation_cache["fa"]:
-        translation_cache["fa"][word] = await run_in_executor(
-            GoogleTranslator(source="de", target="fa").translate, word
-        )
+        try:
+            translation_cache["fa"][word] = await run_in_executor(
+                GoogleTranslator(source="de", target="fa").translate, word
+            )
+        except Exception as e:
+            print(f"Translation error for '{word}' (FA): {e}")
+            translation_cache["fa"][word] = f"[Translation failed: {word}]"
     fa_translation = translation_cache["fa"][word]
 
     # Get Persian definition (with caching)
@@ -109,9 +117,13 @@ async def process_lines_async(words: List[str]) -> None:
             ):  # Handle block quotes
                 # Cache example sentence translations
                 if word not in translation_cache["fa"]:
-                    translation_cache["fa"][word] = await run_in_executor(
-                        GoogleTranslator(source="de", target="fa").translate, word
-                    )
+                    try:
+                        translation_cache["fa"][word] = await run_in_executor(
+                            GoogleTranslator(source="de", target="fa").translate, word
+                        )
+                    except Exception as e:
+                        print(f"Translation error for example '{word.strip()}' (FA): {e}")
+                        translation_cache["fa"][word] = f"[Translation failed]"
                 fa_translation = translation_cache["fa"][word]
 
                 await output_file.write(
