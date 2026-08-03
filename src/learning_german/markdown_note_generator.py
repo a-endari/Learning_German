@@ -104,17 +104,13 @@ async def process_lines_async(words: List[str]) -> None:
     Args:
         words (List[str]): List of words to process
     """
-    async with aiofiles.open(
-        OUTPUT_FILE, APPEND_MODE, encoding=ENCODING
-    ) as output_file:
+    async with aiofiles.open(OUTPUT_FILE, APPEND_MODE, encoding=ENCODING) as output_file:
         # Process words in order
         for word in words:
-            if word.startswith(("#", "\ufeff#")):  # Handle headers
+            if word.startswith(("#", "\ufeff#", "---")):  # Handle headers
                 await output_file.write(f"{word}\n")
                 print(f"Processed : '{word.strip()}', as a header.")
-            elif word.startswith("> ") or word.startswith(
-                "\ufeff> "
-            ):  # Handle block quotes
+            elif word.startswith("> ") or word.startswith("\ufeff> "):  # Handle block quotes
                 # Cache example sentence translations
                 if word not in translation_cache["fa"]:
                     try:
