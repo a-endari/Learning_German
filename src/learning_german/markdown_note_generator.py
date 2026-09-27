@@ -1,8 +1,11 @@
 """Generate Obsidian-compatible German vocabulary notes.
 
 The generator:
-- translates German vocabulary into English and Persian,
-- translates example sentences into Persian,
+- translates German vocabulary into English using MyMemory first,
+- falls back to Google Translate for English,
+- translates German vocabulary and example sentences into Persian
+  using MyMemory first,
+- falls back to Google Translate for Persian,
 - retrieves German pronunciation audio,
 - retrieves Persian definitions,
 - caches successful translations in memory,
@@ -11,19 +14,21 @@ The generator:
 - processes independent work concurrently,
 - preserves Markdown headers and example formatting.
 
-The implementation intentionally uses only the project's existing dependencies.
+PONS is intentionally not used here because the current
+deep-translator PonsTranslator adapter is incompatible with the
+current PONS website structure.
 """
 
 from __future__ import annotations
 
 import asyncio
-import random
 import time
-from collections.abc import Awaitable, Callable
-from typing import TypeVar
 
 import aiofiles
-from deep_translator import GoogleTranslator
+from deep_translator import (
+    GoogleTranslator,
+    MyMemoryTranslator,
+)
 from deep_translator.exceptions import TranslationNotFound
 
 from learning_german.config.settings import (
@@ -43,41 +48,31 @@ from learning_german.utils.fa_definition_retriever import (
 )
 from learning_german.utils.text_processing import remove_article
 
-
-# ---------------------------------------------------------------------------
-# Configuration
-# ---------------------------------------------------------------------------
-
-TRANSLATION_RETRIES = 6
-
-# Minimum/maximum delay between successful translation requests.
-TRANSLATION_MIN_DELAY = 1.1
-TRANSLATION_MAX_DELAY = 2.1
-
-# Base used for exponential backoff after a failed request.
-TRANSLATION_BACKOFF_BASE = 2.0
-
-# Prevent too many translation requests from running simultaneously.
-TRANSLATION_CONCURRENCY = 2
-
-# Maximum number of audio/definition operations running simultaneously.
+TRANSLATION_RETRIES = 3
+TRANSLATION_MIN_INTERVAL = 1.2
+TRANSLATION_BACKOFF_BASE = 4.0
 RESOURCE_CONCURRENCY = 4
 
+translator_mymemory_en = MyMemoryTranslator(
+    source="german",
+    target="english",
+)
+translator_google_en = GoogleTranslator(
+    source="de",
+    target="en",
+)
+translator_mymemory_fa = MyMemoryTranslator(
+    source="german",
+    target="persian",
+)
+translator_google_fa = GoogleTranslator(
+    source="de",
+    target="fa",
+)
 
-# ---------------------------------------------------------------------------
-# Shared services
-# ---------------------------------------------------------------------------
-
-translator_en = GoogleTranslator(source="de", target="en")
-translator_fa = GoogleTranslator(source="de", target="fa")
-
-translation_semaphore = asyncio.Semaphore(TRANSLATION_CONCURRENCY)
+_translation_rate_lock = asyncio.Lock()
+_last_translation_request = 0.0
 resource_semaphore = asyncio.Semaphore(RESOURCE_CONCURRENCY)
-
-
-# ---------------------------------------------------------------------------
-# Caches
-# ---------------------------------------------------------------------------
 
 translation_cache: dict[str, dict[str, str]] = {
     "en": {},
@@ -85,92 +80,74 @@ translation_cache: dict[str, dict[str, str]] = {
     "def": {},
 }
 
-
-# Prevent multiple concurrent requests for the exact same item.
-_translation_locks: dict[tuple[str, str], asyncio.Lock] = {}
-
-
-T = TypeVar("T")
-
-
-# ---------------------------------------------------------------------------
-# Generic helpers
-# ---------------------------------------------------------------------------
+_translation_locks: dict[
+    tuple[str, str],
+    asyncio.Lock,
+] = {}
 
 
 def get_translation_lock(language: str, text: str) -> asyncio.Lock:
-    """Return the lock associated with one translation request."""
-
     key = (language, text)
-
     lock = _translation_locks.get(key)
-
     if lock is None:
         lock = asyncio.Lock()
         _translation_locks[key] = lock
-
     return lock
 
 
-async def run_limited(
-    semaphore: asyncio.Semaphore,
-    operation: Callable[[], Awaitable[T]],
-) -> T:
-    """Run an async operation while respecting a concurrency limit."""
+async def wait_for_translation_slot() -> None:
+    global _last_translation_request
 
-    async with semaphore:
-        return await operation()
+    async with _translation_rate_lock:
+        now = time.monotonic()
+        wait_time = TRANSLATION_MIN_INTERVAL - (now - _last_translation_request)
+        if wait_time > 0:
+            await asyncio.sleep(wait_time)
+        _last_translation_request = time.monotonic()
 
 
-# ---------------------------------------------------------------------------
-# Translation
-# ---------------------------------------------------------------------------
+async def call_translator(
+    translator: MyMemoryTranslator | GoogleTranslator,
+    text: str,
+) -> str | None:
+    await wait_for_translation_slot()
+
+    def translate() -> str:
+        return translator.translate(text)
+
+    result = await asyncio.to_thread(translate)
+
+    if result is None:
+        return None
+
+    result = str(result).strip()
+    return result or None
 
 
 async def translate_with_retry(
-    translator: GoogleTranslator,
+    translator: MyMemoryTranslator | GoogleTranslator,
     text: str,
     language: str,
 ) -> str | None:
-    """Translate text with retries and exponential backoff.
-
-    Returns:
-        The translated text on success.
-        None if all attempts fail.
-    """
-
     for attempt in range(TRANSLATION_RETRIES):
         try:
-            async with translation_semaphore:
-                result = await asyncio.to_thread(
-                    translator.translate,
-                    text,
-                )
+            result = await call_translator(translator, text)
 
-                # Google Translate is being accessed through an unofficial
-                # web-scraping wrapper, so deliberately avoid hammering it.
-                delay = random.uniform(
-                    TRANSLATION_MIN_DELAY,
-                    TRANSLATION_MAX_DELAY,
-                )
-
-            await asyncio.sleep(delay)
-
-            if result and result.strip():
-                return result.strip()
+            if result:
+                return result
 
             raise TranslationNotFound(text)
 
         except TranslationNotFound as exc:
             if attempt == TRANSLATION_RETRIES - 1:
                 print(
-                    f"Translation failed after "
+                    f"Provider failed after "
                     f"{TRANSLATION_RETRIES} attempts "
                     f"for '{text}' ({language}): {exc}"
                 )
                 return None
 
-            backoff = TRANSLATION_BACKOFF_BASE**attempt + random.uniform(0.5, 1.5)
+            backoff = TRANSLATION_BACKOFF_BASE**attempt
 
             print(
                 f"Translation attempt "
@@ -184,13 +161,13 @@ async def translate_with_retry(
         except Exception as exc:
             if attempt == TRANSLATION_RETRIES - 1:
                 print(
-                    f"Translation failed after "
+                    f"Provider failed after "
                     f"{TRANSLATION_RETRIES} attempts "
                     f"for '{text}' ({language}): {exc}"
                 )
                 return None
 
-            backoff = TRANSLATION_BACKOFF_BASE**attempt + random.uniform(0.5, 1.5)
+            backoff = TRANSLATION_BACKOFF_BASE**attempt
 
             print(
                 f"Translation attempt "
@@ -204,51 +181,85 @@ async def translate_with_retry(
     return None
 
 
-async def get_translation(
-    text: str,
-    language: str,
-) -> str | None:
-    """Return a cached translation or fetch one safely."""
-
-    cache = translation_cache[language]
+async def get_english_translation(text: str) -> str | None:
+    cache = translation_cache["en"]
 
     if text in cache:
         return cache[text]
 
-    lock = get_translation_lock(language, text)
+    lock = get_translation_lock("en", text)
 
     async with lock:
-        # Another task may have completed the translation while this
-        # coroutine was waiting for the lock.
         if text in cache:
             return cache[text]
 
-        translator = translator_en if language == "en" else translator_fa
-
         result = await translate_with_retry(
-            translator,
+            translator_mymemory_en,
             text,
-            language,
+            "en",
         )
 
-        # Cache only successful translations.
-        #
-        # Failed results must NOT be cached, otherwise one temporary
-        # Google failure permanently poisons the current process.
         if result is not None:
             cache[text] = result
+            return result
 
-        return result
+        print(f"MyMemory failed for '{text}'. Trying Google Translate...")
+
+        result = await translate_with_retry(
+            translator_google_en,
+            text,
+            "en",
+        )
+
+        if result is not None:
+            cache[text] = result
+            return result
+
+        print(f"All English translation providers failed for '{text}'.")
+
+        return None
 
 
-# ---------------------------------------------------------------------------
-# Audio / definition helpers
-# ---------------------------------------------------------------------------
+async def get_persian_translation(text: str) -> str | None:
+    cache = translation_cache["fa"]
+
+    if text in cache:
+        return cache[text]
+
+    lock = get_translation_lock("fa", text)
+
+    async with lock:
+        if text in cache:
+            return cache[text]
+
+        result = await translate_with_retry(
+            translator_mymemory_fa,
+            text,
+            "fa",
+        )
+
+        if result is not None:
+            cache[text] = result
+            return result
+
+        print(f"MyMemory failed for '{text}' (fa). Trying Google Translate...")
+
+        result = await translate_with_retry(
+            translator_google_fa,
+            text,
+            "fa",
+        )
+
+        if result is not None:
+            cache[text] = result
+            return result
+
+        print(f"All Persian translation providers failed for '{text}'.")
+
+        return None
 
 
 async def get_audio(word: str) -> str | None:
-    """Retrieve and download pronunciation audio for a word."""
-
     base_word = remove_article(word)
     search_word = base_word.lower().replace(" ", "")
 
@@ -256,14 +267,11 @@ async def get_audio(word: str) -> str | None:
         async with resource_semaphore:
             audio_url = await get_audio_url_async(search_word)
 
-        if not audio_url:
+        if not isinstance(audio_url, str) or not audio_url:
             return None
 
         async with resource_semaphore:
-            await download_audio_async(
-                audio_url,
-                base_word,
-            )
+            await download_audio_async(audio_url, base_word)
 
         return audio_url
 
@@ -276,8 +284,6 @@ async def get_audio(word: str) -> str | None:
 
 
 async def get_definition(base_word: str) -> str:
-    """Retrieve the Persian definition for a word."""
-
     cache = translation_cache["def"]
 
     if base_word in cache:
@@ -300,29 +306,22 @@ async def get_definition(base_word: str) -> str:
         return ""
 
 
-# ---------------------------------------------------------------------------
-# Vocabulary processing
-# ---------------------------------------------------------------------------
-
-
 async def process_word_async(word: str) -> str:
-    """Process one vocabulary item."""
-
     word = word.strip().replace("\ufeff", "")
-
     base_word = remove_article(word)
 
-    # These operations are independent, so start them together.
     audio_task = asyncio.create_task(get_audio(word))
-
     definition_task = asyncio.create_task(get_definition(base_word))
-
-    en_task = asyncio.create_task(get_translation(word, "en"))
-
-    fa_task = asyncio.create_task(get_translation(word, "fa"))
+    en_task = asyncio.create_task(get_english_translation(word))
+    fa_task = asyncio.create_task(get_persian_translation(word))
 
     try:
-        audio_url, definition, en_translation, fa_translation = await asyncio.gather(
+        (
+            audio_url,
+            definition,
+            en_translation,
+            fa_translation,
+        ) = await asyncio.gather(
             audio_task,
             definition_task,
             en_task,
@@ -359,35 +358,25 @@ async def process_word_async(word: str) -> str:
     output = f"> [!tldr]- {word}\n"
 
     if audio_url:
-        output += f"> ![[{base_word}.wav]]\n> {en_translation}\n> {fa_translation}\n{definition}\n"
+        output += f"> ![[{base_word}.wav]]\n"
 
+    output += f"> {en_translation}\n"
+    output += f"> {fa_translation}\n"
+    output += f"{definition}\n"
+
+    if audio_url:
         print(f"Processed: '{word}'")
-
     else:
-        output += f"> {en_translation}\n> {fa_translation}\n{definition}\n"
-
         print(f"Processed: '{word}', No audio file was found!")
 
     return output
 
 
-# ---------------------------------------------------------------------------
-# Example sentence processing
-# ---------------------------------------------------------------------------
-
-
 async def process_example_sentence(word: str) -> str:
-    """Translate and format a German example sentence."""
-
     original = word.strip().replace("\ufeff", "")
-
-    # Remove Markdown blockquote syntax before sending text to Google.
     sentence = original.removeprefix("> ").strip()
 
-    translation = await get_translation(
-        sentence,
-        "fa",
-    )
+    translation = await get_persian_translation(sentence)
 
     if translation is None:
         translation = "[Translation failed]"
@@ -395,50 +384,19 @@ async def process_example_sentence(word: str) -> str:
     return f"> [!warning]- 📝 Beispiel Satz:\n{original}\n> {translation}\n\n"
 
 
-# ---------------------------------------------------------------------------
-# Input classification
-# ---------------------------------------------------------------------------
-
-
 def is_header(line: str) -> bool:
-    """Return whether a line is a Markdown/header separator."""
-
-    return line.startswith(
-        (
-            "#",
-            "\ufeff#",
-            "---",
-        )
-    )
+    return line.startswith(("#", "\ufeff#", "---"))
 
 
 def is_example_sentence(line: str) -> bool:
-    """Return whether a line is a Markdown blockquote."""
-
-    return line.startswith(
-        (
-            "> ",
-            "\ufeff> ",
-        )
-    )
+    return line.startswith(("> ", "\ufeff> "))
 
 
 def is_processable_word(line: str) -> bool:
-    """Return whether a line should be processed as vocabulary."""
-
     return len(line.strip()) > MIN_WORD_LENGTH
 
 
-# ---------------------------------------------------------------------------
-# Line processing
-# ---------------------------------------------------------------------------
-
-
-async def process_lines_async(
-    words: list[str],
-) -> None:
-    """Process input lines and append generated Markdown to the output."""
-
+async def process_lines_async(words: list[str]) -> None:
     async with aiofiles.open(
         OUTPUT_FILE,
         APPEND_MODE,
@@ -454,25 +412,16 @@ async def process_lines_async(
 
             elif is_example_sentence(word):
                 result = await process_example_sentence(word)
-
                 await output_file.write(result)
 
                 print(f"Processed: '{word.strip()}', as an example sentence.")
 
             elif is_processable_word(word):
                 result = await process_word_async(word)
-
                 await output_file.write(result)
 
 
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
-
-
 def print_statistics(elapsed_time: float) -> None:
-    """Print processing statistics."""
-
     print(f"\nProcessing completed in {elapsed_time:.2f} seconds")
 
     print(
@@ -487,8 +436,6 @@ def print_statistics(elapsed_time: float) -> None:
 
 
 async def main_async() -> None:
-    """Run the Markdown note generator."""
-
     start_time = time.perf_counter()
 
     try:
@@ -520,8 +467,6 @@ async def main_async() -> None:
 
 
 def main_async_wrapper() -> None:
-    """Synchronous wrapper for the asynchronous application."""
-
     try:
         asyncio.run(main_async())
     except KeyboardInterrupt:
@@ -529,8 +474,6 @@ def main_async_wrapper() -> None:
 
 
 def main() -> None:
-    """CLI entry point."""
-
     main_async_wrapper()
 
 

@@ -17,7 +17,7 @@ def parse_definition(html):
     """Parse HTML to extract definition"""
     persian_definition = ""
     synonyms_list = ""
-    
+
     soup = BeautifulSoup(html, "html.parser")
     persian_defenitions = soup.find("div", id="quick-access")
 
@@ -33,16 +33,13 @@ def parse_definition(html):
         synonym_elements = synonyms.find_all(text=True)
         # Filter out '+' signs and empty strings, then strip whitespace
         clean_synonyms = [
-            word.strip()
-            for word in synonym_elements
-            if word.strip() and word.strip() != "+"
+            word.strip() for word in synonym_elements if word.strip() and word.strip() != "+"
         ]
 
         synonyms_list = "> **مترادف و متضاد ها:**\n> "
         # Join only the actual words with a single +
-        synonyms_list += " + ".join(
-            clean_synonyms[1:]
-        )  # Start from index 1 to skip the header
+        # Start from index 1 to skip the header
+        synonyms_list += " + ".join(clean_synonyms[1:])
         synonyms_list += "\n"
     return persian_definition + synonyms_list
 
